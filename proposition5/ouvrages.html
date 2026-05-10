@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ouvrages &amp; Ressources — Réveil Spirituel Gabon</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .books-section-title { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .books-section-title h3 { font-size: 1.3rem; color: var(--navy); }
+    .books-section-title .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, var(--gold), transparent); }
+    .ouvrages-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    .book-card { background: var(--white); border: 1px solid #e2e8f0; border-radius: var(--r-lg); overflow: hidden; box-shadow: 0 2px 12px rgba(27,42,107,0.06); transition: var(--t); }
+    .book-card:hover { box-shadow: 0 8px 32px rgba(27,42,107,0.14); transform: translateY(-5px); }
+    .book-cover { aspect-ratio: 3/4; overflow: hidden; position: relative; background: #e8ecf8; }
+    .book-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .book-badge { position: absolute; top: 0.6rem; left: 0.6rem; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.25rem 0.6rem; border-radius: 4px; }
+    .badge-dispo { background: #16a34a; color: white; }
+    .badge-soon { background: var(--navy); color: white; }
+    .book-body { padding: 1.1rem 1.1rem 1.25rem; }
+    .book-body h4 { font-size: 0.88rem; color: var(--navy); font-weight: 700; margin-bottom: 0.3rem; line-height: 1.3; }
+    .book-body p { font-size: 0.75rem; margin-bottom: 0.75rem; }
+    .book-progress-label { font-size: 0.68rem; font-weight: 600; color: var(--navy); display: flex; justify-content: space-between; margin-bottom: 0.3rem; }
+    @media(max-width:1000px) { .ouvrages-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media(max-width:700px) { .ouvrages-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px) { .ouvrages-grid { grid-template-columns: 1fr; } }
+    .audio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+    .audio-card { background: var(--white); border: 1px solid #e2e8f0; border-radius: var(--r-lg); padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem; box-shadow: 0 2px 8px rgba(27,42,107,0.06); transition: var(--t); }
+    .audio-card:hover { box-shadow: 0 6px 24px rgba(27,42,107,0.12); }
+    .audio-icon { width: 54px; height: 54px; min-width: 54px; border-radius: 50%; background: var(--navy); display: flex; align-items: center; justify-content: center; }
+    .audio-icon i { color: var(--gold); font-size: 1.3rem; }
+    .audio-body h4 { font-size: 0.88rem; color: var(--navy); font-weight: 600; margin-bottom: 0.25rem; }
+    .audio-body p { font-size: 0.75rem; margin-bottom: 0.6rem; }
+    @media(max-width:800px) { .audio-grid { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:520px) { .audio-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.5rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px;color:var(--gold)"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px;color:var(--gold)"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px;color:var(--gold)"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- ===== PAGE HERO ===== -->
+  <header class="page-hero">
+    <div class="page-hero-bg">
+      <img src="../imag/Fichier 1-1.png" alt="">
+    </div>
+    <div class="page-hero-overlay"></div>
+    <div class="container">
+      <div class="page-hero-content">
+        <span class="section-label">Écrits &amp; Ressources</span>
+        <h1>Ouvrages &amp; Audios</h1>
+        <p>Des ouvrages théologiques et des ressources spirituelles disponibles gratuitement pour édifier le Corps de Christ au Gabon et dans les nations francophones.</p>
+      </div>
+      <div class="page-hero-img">
+        <img src="../imag/Fichier 2.png" alt="" style="object-fit:contain">
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== BOOKS SECTION ===== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Bibliothèque</span>
+        <div class="gold-bar"></div>
+        <h2>Ouvrages <em>Disponibles</em></h2>
+        <p>Téléchargez gratuitement nos ouvrages publiés — vérité des Écritures, eschatologie et vision apostolique.</p>
+      </div>
+
+      <div class="books-section-title reveal">
+        <div class="divider-line"></div>
+        <h3><i class="fa fa-check-circle" style="color:#16a34a"></i> Disponibles maintenant</h3>
+        <div class="divider-line" style="background:linear-gradient(270deg,var(--gold),transparent)"></div>
+      </div>
+
+      <div class="ouvrages-grid stagger">
+
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="YHWH Echad" style="object-fit:contain;padding:1.5rem;background:#e8ecf8">
+            <span class="book-badge badge-dispo"><i class="fa fa-check"></i> Disponible</span>
+          </div>
+          <div class="book-body">
+            <h4>YHWH Echad, Peuple Un</h4>
+            <p>L'unité du peuple d'Israël au temps de la fin — une étude prophétique et scripturale profonde.</p>
+            <a href="https://drive.google.com/file/d/1ErPRuaLhNfWtvQ6auaOc_OXoSQGQ7qyp/view" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%;justify-content:center;font-size:0.8rem"><i class="fa fa-download"></i> Télécharger PDF</a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="../imag/Fichier 2.png" alt="Babylone" style="object-fit:contain;padding:1rem;background:#f0f3fb">
+            <span class="book-badge badge-dispo"><i class="fa fa-check"></i> Disponible</span>
+          </div>
+          <div class="book-body">
+            <h4>Babylone la Grande est Tombée</h4>
+            <p>Analyse prophétique de la chute du système babylonien à la lumière de l'Apocalypse.</p>
+            <a href="https://drive.google.com/file/d/10tczppva8fSyMHuLy3r1Q2k97m5HGx8Q/view" target="_blank" rel="noopener noreferrer" class="btn" style="width:100%;justify-content:center;font-size:0.8rem"><i class="fa fa-download"></i> Télécharger PDF</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="books-section-title reveal" style="margin-top:2.5rem">
+        <div class="divider-line"></div>
+        <h3><i class="fa fa-clock" style="color:var(--navy)"></i> À Paraître</h3>
+        <div class="divider-line" style="background:linear-gradient(270deg,var(--gold),transparent)"></div>
+      </div>
+
+      <div class="ouvrages-grid stagger">
+
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="../imag/Fichier 1-1.png" alt="Le Retour d'Yisraël" style="object-fit:contain;padding:1rem;background:#f0f3fb">
+            <span class="book-badge badge-soon">À paraître</span>
+          </div>
+          <div class="book-body">
+            <h4>Le Retour d'Yisraël</h4>
+            <p>La restauration prophétique du peuple d'Israël annoncée par les prophètes — en cours de rédaction.</p>
+            <div class="book-progress-label"><span>Rédaction</span><span>70%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-w="70"></div></div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="../imag/logo reveil spirituel R_Plan de travail 1 copie.png" alt="Manuel du Disciple" style="object-fit:contain;padding:1.5rem;background:#f0f3fb">
+            <span class="book-badge badge-soon">À paraître</span>
+          </div>
+          <div class="book-body">
+            <h4>Manuel du Disciple Consacré</h4>
+            <p>Guide pratique de la vie chrétienne engagée : discipline, sainteté, ministère et intercession.</p>
+            <div class="book-progress-label"><span>Rédaction</span><span>40%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-w="40"></div></div>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover">
+            <img src="../imag/Fichier 2.png" alt="Les Fêtes de YHWH" style="object-fit:contain;padding:1rem;background:#f0f3fb">
+            <span class="book-badge badge-soon">À paraître</span>
+          </div>
+          <div class="book-body">
+            <h4>Les Fêtes de YHWH — Guide</h4>
+            <p>Étude des fêtes bibliques de YHWH : signification, accomplissement prophétique en Yéhoshou'a.</p>
+            <div class="book-progress-label"><span>Rédaction</span><span>20%</span></div>
+            <div class="progress-bar"><div class="progress-fill" data-w="20"></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AUDIO SECTION ===== -->
+  <section class="section" style="background:var(--bg)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-label">Enseignements Audio</span>
+        <div class="gold-bar"></div>
+        <h2>Ressources <em>Audio</em></h2>
+        <p>Écoutez et partagez les enseignements audios disponibles gratuitement sur Google Drive.</p>
+      </div>
+      <div class="audio-grid stagger">
+        <div class="audio-card">
+          <div class="audio-icon"><i class="fa fa-headphones"></i></div>
+          <div class="audio-body">
+            <h4>Série Prophétique — Vol.1</h4>
+            <p>Enseignements sur les prophètes et la Parole prophétique pour notre génération.</p>
+            <a href="https://drive.google.com/file/d/1lD1Q2ewQW3Ejtge6XQawyAvPQsrftI_-/view" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.75rem;padding:0.4rem 0.9rem"><i class="fa fa-play"></i> Écouter</a>
+          </div>
+        </div>
+        <div class="audio-card">
+          <div class="audio-icon"><i class="fa fa-headphones"></i></div>
+          <div class="audio-body">
+            <h4>Nuit d'Intercession — Gabon</h4>
+            <p>Enregistrement d'une nuit de prière collective pour le réveil du peuple gabonais.</p>
+            <a href="https://drive.google.com/file/d/1Jca-IWSWEGkXj8AqfhbKWzTWlnefOWFM/view" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.75rem;padding:0.4rem 0.9rem"><i class="fa fa-play"></i> Écouter</a>
+          </div>
+        </div>
+        <div class="audio-card">
+          <div class="audio-icon"><i class="fa fa-headphones"></i></div>
+          <div class="audio-body">
+            <h4>Enseignement Torah — Shabbat</h4>
+            <p>Comprendre le Shabbat, son sens spirituel et son application pour les croyants d'aujourd'hui.</p>
+            <a href="https://drive.google.com/file/d/1NvVdvMe1o_Wm0odtguP9GqorBhlPerHH/view" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="font-size:0.75rem;padding:0.4rem 0.9rem"><i class="fa fa-play"></i> Écouter</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VERSE ===== -->
+  <div class="verse-section">
+    <img src="../imag/Fichier 1(0).png" alt="" class="verse-watermark">
+    <div class="container">
+      <blockquote>« Ta Parole est une lampe à mes pieds, et une lumière sur mon sentier. »</blockquote>
+      <cite>Psaume 119:105</cite>
+    </div>
+  </div>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-inner">
+        <div>
+          <h2>Soutenir la Production</h2>
+          <p>Aidez-nous à produire et distribuer gratuitement davantage de ressources bibliques pour équiper les croyants.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="soutenir.html" class="btn"><i class="fa fa-heart"></i> Nous Soutenir</a>
+          <a href="bible.html" class="btn btn-outline"><i class="fa fa-bible"></i> Lire la Bible</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html">Accueil</a></li><li><a href="vision.html">La Vision</a></li>
+        <li><a href="bible.html">Lire la Bible</a></li><li><a href="soutenir.html">Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html">Projets</a></li><li><a href="videos.html">Vidéos</a></li><li><a href="ouvrages.html">Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px;color:var(--gold)"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174255323" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px;color:var(--gold)"></i> +241 74 255 323</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px;color:var(--gold)"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

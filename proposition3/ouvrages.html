@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ouvrages – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .books-cosmic { display:grid; grid-template-columns:repeat(3,1fr); gap:1.75rem; }
+    @media(max-width:960px){ .books-cosmic{grid-template-columns:1fr 1fr;} }
+    @media(max-width:580px){ .books-cosmic{grid-template-columns:1fr;} }
+    .book-cosmic { border:1px solid var(--glass-border); border-radius:var(--radius); overflow:hidden; background:var(--glass-bg); backdrop-filter:blur(10px); transition:var(--transition); display:flex; flex-direction:column; }
+    .book-cosmic:hover { border-color:rgba(245,158,11,0.45); transform:translateY(-5px); }
+    .book-cosmic-cover { height:180px; display:flex; align-items:center; justify-content:center; font-size:3.25rem; position:relative; }
+    .book-cosmic-cover.c1 { background:radial-gradient(ellipse, rgba(245,158,11,0.2), rgba(3,6,22,0.95)); color:var(--gold); }
+    .book-cosmic-cover.c2 { background:radial-gradient(ellipse, rgba(124,58,237,0.25), rgba(3,6,22,0.95)); color:var(--violet-mid); }
+    .book-cosmic-cover.cp { background:radial-gradient(ellipse, rgba(255,255,255,0.04), rgba(3,6,22,0.95)); color:rgba(255,255,255,0.2); }
+    .book-cosmic-status { position:absolute; top:0.75rem; right:0.75rem; font-size:0.62rem; font-weight:700; padding:0.2rem 0.6rem; border-radius:1rem; font-family:'Cinzel',serif; letter-spacing:0.06em; }
+    .status-avail { background:rgba(34,197,94,0.12); color:#4ade80; border:1px solid rgba(34,197,94,0.3); }
+    .status-soon { background:rgba(245,158,11,0.12); color:var(--gold); border:1px solid rgba(245,158,11,0.3); }
+    .book-cosmic-body { padding:1.25rem 1.5rem 1.75rem; flex:1; display:flex; flex-direction:column; }
+    .book-cosmic-author { font-size:0.65rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--gold); font-family:'Cinzel',serif; margin-bottom:0.35rem; }
+    .book-cosmic-body h4 { font-family:'Cinzel', serif; font-size:0.95rem; color:var(--white); margin-bottom:0.5rem; line-height:1.45; }
+    .book-cosmic-body p { font-size:0.8rem; color:var(--dim); flex:1; margin-bottom:1.25rem; }
+    .audio-cosmic { display:flex; flex-direction:column; gap:1.25rem; }
+    .audio-cosmic-item { display:flex; align-items:center; gap:1.25rem; padding:1.25rem 1.5rem; border:1px solid var(--glass-border); border-radius:var(--radius); background:var(--glass-bg); transition:var(--transition); }
+    .audio-cosmic-item:hover { border-color:rgba(245,158,11,0.4); }
+    .ac-icon { width:50px; height:50px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; }
+    .ac-icon.gold-bg { background:rgba(245,158,11,0.15); color:var(--gold); border:1px solid rgba(245,158,11,0.3); }
+    .ac-icon.violet-bg { background:rgba(124,58,237,0.15); color:var(--violet-mid); border:1px solid rgba(124,58,237,0.3); }
+    .ac-icon.silver-bg { background:rgba(255,255,255,0.06); color:var(--silver); border:1px solid var(--glass-border); }
+    .ac-info { flex:1; }
+    .ac-title { font-family:'Cinzel', serif; font-size:0.88rem; color:var(--white); margin-bottom:0.2rem; }
+    .ac-meta { font-size:0.72rem; color:var(--dim); }
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.55rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-tag"><i class="fa fa-book-open"></i> &nbsp; Ouvrages</div>
+        <h1>Livres &amp; Ressources Audio</h1>
+        <p>Des écrits inspirés et des enseignements audio pour nourrir votre foi et approfondir votre connaissance des Écritures.</p>
+        <div class="page-hero-verse">
+          <blockquote>« Toute Écriture est inspirée d'Élohîm et utile pour la doctrine… »</blockquote>
+          <cite>2 Timothée 3:16</cite>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-book"></i> Livres</span>
+        <div class="gold-line"></div>
+        <h2>Nos Livres</h2>
+        <p style="color:var(--dim)">Téléchargez gratuitement nos ouvrages disponibles sur Google Drive.</p>
+      </div>
+      <div class="books-cosmic stagger">
+        <div class="book-cosmic">
+          <div class="book-cosmic-cover c1">
+            <i class="fa fa-scroll"></i>
+            <span class="book-cosmic-status status-avail"><i class="fa fa-check"></i> Disponible</span>
+          </div>
+          <div class="book-cosmic-body">
+            <div class="book-cosmic-author">Réveil Spirituel</div>
+            <h4>YHWH Echad, Peuple Un</h4>
+            <p>L'unité du peuple de Dieu — de l'Ancien au Nouveau Testament — dans la lumière des Écritures hébraïques.</p>
+            <a href="https://drive.google.com/file/d/1ErPRuaLhNfWtvQ6auaOc_OXoSQGQ7qyp/view" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="font-size:0.8rem"><i class="fa fa-download"></i> Télécharger</a>
+          </div>
+        </div>
+        <div class="book-cosmic">
+          <div class="book-cosmic-cover c2">
+            <i class="fa fa-city"></i>
+            <span class="book-cosmic-status status-avail"><i class="fa fa-check"></i> Disponible</span>
+          </div>
+          <div class="book-cosmic-body">
+            <div class="book-cosmic-author">Réveil Spirituel</div>
+            <h4>Babylone — Le Système Dénominationnel</h4>
+            <p>Analyse prophétique du système religieux babylonien et appel à sortir pour revenir aux Écritures pures.</p>
+            <a href="https://drive.google.com/file/d/10tczppva8fSyMHuLy3r1Q2k97m5HGx8Q/view" target="_blank" rel="noopener noreferrer" class="btn btn-glow" style="font-size:0.8rem"><i class="fa fa-download"></i> Télécharger</a>
+          </div>
+        </div>
+        <div class="book-cosmic">
+          <div class="book-cosmic-cover cp">
+            <i class="fa fa-book"></i>
+            <span class="book-cosmic-status status-soon"><i class="fa fa-clock"></i> À paraître</span>
+          </div>
+          <div class="book-cosmic-body">
+            <div class="book-cosmic-author">Réveil Spirituel</div>
+            <h4>La Solitude</h4>
+            <p>Comprendre la valeur de la solitude et du silence comme espace de rencontre avec YHWH.</p>
+            <button class="btn btn-ghost" disabled style="font-size:0.8rem;opacity:0.5;cursor:not-allowed"><i class="fa fa-clock"></i> Bientôt disponible</button>
+          </div>
+        </div>
+        <div class="book-cosmic">
+          <div class="book-cosmic-cover cp">
+            <i class="fa fa-praying-hands"></i>
+            <span class="book-cosmic-status status-soon"><i class="fa fa-clock"></i> À paraître</span>
+          </div>
+          <div class="book-cosmic-body">
+            <div class="book-cosmic-author">Réveil Spirituel</div>
+            <h4>La Vie de Prière</h4>
+            <p>Principes bibliques pour développer une vie de prière profonde et transformante.</p>
+            <button class="btn btn-ghost" disabled style="font-size:0.8rem;opacity:0.5;cursor:not-allowed"><i class="fa fa-clock"></i> Bientôt disponible</button>
+          </div>
+        </div>
+        <div class="book-cosmic">
+          <div class="book-cosmic-cover cp">
+            <i class="fa fa-fire"></i>
+            <span class="book-cosmic-status status-soon"><i class="fa fa-clock"></i> À paraître</span>
+          </div>
+          <div class="book-cosmic-body">
+            <div class="book-cosmic-author">Réveil Spirituel</div>
+            <h4>Le Fardeau de YHWH</h4>
+            <p>Porter le cœur de Dieu pour les nations — l'intercession apostolique et prophétique.</p>
+            <button class="btn btn-ghost" disabled style="font-size:0.8rem;opacity:0.5;cursor:not-allowed"><i class="fa fa-clock"></i> Bientôt disponible</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="verse-cosmic">
+    <div class="container">
+      <blockquote>« Que la Parole de Christ demeure en vous abondamment. »</blockquote>
+      <cite>Colossiens 3:16</cite>
+    </div>
+  </div>
+
+  <section class="section" style="background:rgba(91,33,182,0.06)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-headphones"></i> Audio</span>
+        <div class="violet-line"></div>
+        <h2>Enseignements Audio</h2>
+        <p style="color:var(--dim)">Trois enseignements audio disponibles gratuitement — à écouter où que vous soyez.</p>
+      </div>
+      <div class="audio-cosmic stagger" style="max-width:760px;margin:0 auto">
+        <div class="audio-cosmic-item">
+          <div class="ac-icon gold-bg"><i class="fa fa-headphones"></i></div>
+          <div class="ac-info">
+            <div class="ac-title">Combattre dans la Prière</div>
+            <div class="ac-meta"><i class="fa fa-microphone" style="width:12px"></i> Enseignement &nbsp;·&nbsp; <i class="fab fa-google-drive" style="width:12px"></i> Google Drive</div>
+          </div>
+          <a href="https://drive.google.com/file/d/1lD1Q2ewQW3Ejtge6XQawyAvPQsrftI_-/view" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="font-size:0.78rem;white-space:nowrap"><i class="fa fa-play"></i> Écouter</a>
+        </div>
+        <div class="audio-cosmic-item">
+          <div class="ac-icon violet-bg"><i class="fa fa-headphones"></i></div>
+          <div class="ac-info">
+            <div class="ac-title">Ne soit pas distrait, travail !</div>
+            <div class="ac-meta"><i class="fa fa-microphone" style="width:12px"></i> Enseignement &nbsp;·&nbsp; <i class="fab fa-google-drive" style="width:12px"></i> Google Drive</div>
+          </div>
+          <a href="https://drive.google.com/file/d/1Jca-IWSWEGkXj8AqfhbKWzTWlnefOWFM/view" target="_blank" rel="noopener noreferrer" class="btn btn-glow" style="font-size:0.78rem;white-space:nowrap"><i class="fa fa-play"></i> Écouter</a>
+        </div>
+        <div class="audio-cosmic-item">
+          <div class="ac-icon silver-bg"><i class="fa fa-headphones"></i></div>
+          <div class="ac-info">
+            <div class="ac-title">Principes et Règles pour la Marche</div>
+            <div class="ac-meta"><i class="fa fa-microphone" style="width:12px"></i> Enseignement &nbsp;·&nbsp; <i class="fab fa-google-drive" style="width:12px"></i> Google Drive</div>
+          </div>
+          <a href="https://drive.google.com/file/d/1NvVdvMe1o_Wm0odtguP9GqorBhlPerHH/view" target="_blank" rel="noopener noreferrer" class="btn btn-ghost" style="font-size:0.78rem;white-space:nowrap"><i class="fa fa-play"></i> Écouter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-cosmic reveal">
+        <div class="cta-box">
+          <div class="cta-inner">
+            <span class="section-tag">Aller Plus Loin</span>
+            <h2>Lire la Bible en Entier</h2>
+            <p style="color:var(--dim)">Les ouvrages sont des compléments — la source première reste les Écritures de YHWH dans leur version hébraïque originale.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+              <a href="bible.html" class="btn btn-gold"><i class="fa fa-book-open"></i> Lire la Bible</a>
+              <a href="videos.html" class="btn btn-ghost"><i class="fab fa-youtube"></i> Nos Vidéos</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Accueil</a></li>
+        <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> La Vision</a></li>
+        <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Lire la Bible</a></li>
+        <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Projets Avenir</a></li>
+        <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nos Vidéos</a></li>
+        <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px"></i> +241 74 214 316</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

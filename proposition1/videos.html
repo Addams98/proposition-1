@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Vidéos – Réveil Spirituel</title>
+  <meta name="description" content="Regardez les vidéos de la mission Réveil Spirituel sur YouTube — enseignements, louange et témoignages.">
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .yt-hero-section {
+      background: linear-gradient(160deg, #0a0a0a 0%, #1a0000 50%, #2d0000 100%);
+      padding: 9rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .yt-hero-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(255,0,0,0.12) 0%, transparent 65%);
+    }
+    .yt-hero-content { position: relative; z-index: 1; }
+    .yt-logo { font-size: 5rem; margin-bottom: 1.25rem; filter: drop-shadow(0 10px 25px rgba(255,0,0,0.4)); }
+    .yt-hero-section h1 { color: var(--white); margin-bottom: 1rem; }
+    .yt-hero-section p { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 2.5rem; font-size: 1.05rem; }
+    .yt-gold-bar { width: 60px; height: 4px; background: #FF0000; border-radius: 2px; margin: 0 auto 2rem; }
+
+    .channel-card {
+      background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius);
+      padding: 3rem 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .channel-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(255,0,0,0.08) 0%, transparent 60%);
+    }
+    .channel-card-content { position: relative; z-index: 1; }
+    .channel-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin: 1.5rem 0;
+    }
+    .channel-stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); line-height: 1; }
+    .channel-stat .lbl { font-size: 0.75rem; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .video-categories {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .cat-btn {
+      padding: 0.45rem 1.1rem;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+      color: var(--text-light);
+      background: var(--white);
+      cursor: pointer;
+    }
+    .cat-btn.active, .cat-btn:hover {
+      background: var(--primary);
+      color: var(--white);
+      border-color: var(--primary);
+    }
+
+    /* YouTube embed placeholder cards */
+    .yt-video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .yt-card {
+      background: var(--dark);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+    .yt-card:hover { transform: scale(1.02); box-shadow: 0 16px 40px rgba(0,0,0,0.35); }
+    .yt-thumb {
+      aspect-ratio: 16/9;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .yt-thumb::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.04) 100%);
+    }
+    .yt-play-btn {
+      width: 60px; height: 60px;
+      background: rgba(255,0,0,0.9);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: white;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(255,0,0,0.4);
+      position: relative; z-index: 1;
+    }
+    .yt-card:hover .yt-play-btn {
+      background: #FF0000;
+      transform: scale(1.1);
+    }
+    .yt-card-body { padding: 1.25rem; }
+    .yt-category { font-size: 0.7rem; color: #FF0000; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+    .yt-card-body h4 { color: var(--white); font-size: 0.9rem; font-family: 'Poppins', sans-serif; font-weight: 500; }
+
+    .subscribe-cta {
+      background: linear-gradient(135deg, #1a0000 0%, #2d0000 100%);
+      border-radius: var(--radius);
+      padding: 3rem;
+      text-align: center;
+      border: 1px solid rgba(255,0,0,0.2);
+      position: relative;
+      overflow: hidden;
+      margin-top: 3.5rem;
+    }
+    .subscribe-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(255,0,0,0.08) 0%, transparent 65%);
+    }
+    .subscribe-cta-content { position: relative; z-index: 1; }
+    .subscribe-cta h2 { color: var(--white); margin-bottom: 0.75rem; }
+    .subscribe-cta p { color: rgba(255,255,255,0.65); margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; }
+    .btn-yt-sub {
+      background: #FF0000;
+      color: white;
+      font-size: 1rem;
+      padding: 0.9rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-family: 'Poppins', sans-serif;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      transition: var(--transition);
+      box-shadow: 0 6px 20px rgba(255,0,0,0.35);
+    }
+    .btn-yt-sub:hover {
+      background: #CC0000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(255,0,0,0.5);
+    }
+
+    @media (max-width: 900px) {
+      .yt-video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .yt-video-grid { grid-template-columns: 1fr; }
+      .channel-stats { gap: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text">
+        <span>Réveil Spirituel</span>
+        <span>Gabon &amp; Nations</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Actualités <span class="arrow">&#9660;</span></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:16px"></i> Projets Avenir</a>
+          <a href="videos.html" style="color: var(--gold)"><i class="fa fa-play-circle" style="width:16px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:16px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- YT HERO -->
+  <header class="yt-hero-section" role="banner">
+    <div class="yt-hero-content">
+      <div class="yt-logo"><i class="fab fa-youtube"></i></div>
+      <h1>Nos Vidéos</h1>
+      <p>Enseignements bibliques, messages de réveil, temps d'adoration et témoignages — retrouvez toutes nos vidéos sur YouTube.</p>
+      <div class="yt-gold-bar"></div>
+      <div class="channel-card reveal">
+        <div class="channel-card-content">
+          <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Réveil Spirituel" style="height:64px; margin: 0 auto 1rem;">
+          <h3 style="color:var(--white); margin-bottom:0.25rem; font-size:1.3rem;">@Reveilspirituel_Gabon</h3>
+          <p style="color:rgba(255,255,255,0.55); font-size:0.85rem; margin-bottom:1.25rem;">Chaîne YouTube officielle de la mission Réveil Spirituel</p>
+          <div class="channel-stats">
+            <div class="channel-stat">
+              <div class="num"><i class="fab fa-youtube" style="color:#FF0000"></i></div>
+              <div class="lbl">YouTube</div>
+            </div>
+            <div class="channel-stat">
+              <div class="num"><i class="fab fa-whatsapp" style="color:#25d366"></i></div>
+              <div class="lbl">WhatsApp</div>
+            </div>
+            <div class="channel-stat">
+              <div class="num"><i class="fab fa-facebook-f" style="color:#1877F2"></i></div>
+              <div class="lbl">Facebook</div>
+            </div>
+          </div>
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn-yt-sub">
+            <i class="fab fa-youtube"></i> S'abonner à la chaîne
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEOS SECTION -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Nos Contenus</span>
+        <h2>Vidéos Récentes</h2>
+        <p>Retrouvez nos derniers enseignements et messages sur notre chaîne YouTube.</p>
+        <div class="gold-bar"></div>
+      </div>
+
+      <div class="video-categories reveal">
+        <button class="cat-btn active">Tout</button>
+        <button class="cat-btn">Enseignements</button>
+        <button class="cat-btn">Réveil</button>
+        <button class="cat-btn">Prière</button>
+        <button class="cat-btn">Témoignages</button>
+      </div>
+
+      <div class="yt-video-grid stagger">
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #1a1a6e 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Enseignement</div>
+            <h4>Le Réveil Spirituel : Comprendre les Saisons</h4>
+          </div>
+        </div>
+
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #2d1a00 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Prière</div>
+            <h4>Combattre dans la Prière — Session de Prière</h4>
+          </div>
+        </div>
+
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #1a4a1a 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Réveil</div>
+            <h4>Message de Réveil pour la Nation Gabonaise</h4>
+          </div>
+        </div>
+
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #4a1a1a 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Enseignement</div>
+            <h4>Retour aux Origines Bibliques — Fondements</h4>
+          </div>
+        </div>
+
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #1a1a4a 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Réveil</div>
+            <h4>Veillée de Réveil — Manifestations du Saint-Esprit</h4>
+          </div>
+        </div>
+
+        <div class="yt-card">
+          <div class="yt-thumb" style="background: linear-gradient(135deg, #2a1a4a 0%, var(--dark) 100%)">
+            <div class="yt-play-btn"><i class="fa fa-play" style="margin-left:3px"></i></div>
+          </div>
+          <div class="yt-card-body">
+            <div class="yt-category">Enseignement</div>
+            <h4>La Destinée de la Nation Gabonaise</h4>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUBSCRIBE CTA -->
+      <div class="subscribe-cta reveal">
+        <div class="subscribe-cta-content">
+          <div style="font-size:3rem; margin-bottom:1rem"><i class="fab fa-youtube"></i></div>
+          <h2>Abonnez-vous à notre Chaîne</h2>
+          <p>Ne manquez aucun enseignement, message de réveil ou témoignage. Activez les notifications pour être informé dès la publication d'une nouvelle vidéo.</p>
+          <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn-yt-sub">
+              <i class="fab fa-youtube"></i> S'abonner maintenant
+            </a>
+            <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:0.9rem 2rem">
+              <i class="fab fa-whatsapp"></i> Canal WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSE BLOCK -->
+  <div class="verse-block">
+    <blockquote>« Allez par tout le monde et prêchez l'Évangile à toute la création. »</blockquote>
+    <cite>Marc 16:15</cite>
+    <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="ouvrages.html" class="btn btn-gold"><i class="fa fa-book"></i> Voir les Ouvrages</a>
+      <a href="index.html" class="btn btn-outline"><i class="fa fa-home"></i> Retour à l'Accueil</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="footer-tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-links mt-3">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Accueil</a></li>
+          <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> La Vision</a></li>
+          <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Lire la Bible</a></li>
+          <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nous Soutenir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Actualités</h5>
+        <ul>
+          <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Projets Avenir</a></li>
+          <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nos Vidéos</a></li>
+          <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Ouvrages</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:14px"></i> Email</a></li>
+          <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:14px"></i> +241 74 214 316</a></li>
+          <li><a href="#"><i class="fa fa-map-marker-alt" style="width:14px"></i> Libreville, Gabon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

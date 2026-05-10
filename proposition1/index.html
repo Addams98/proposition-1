@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Réveil Spirituel – Accueil</title>
+  <meta name="description" content="Réveil Spirituel est une vision apostolique et prophétique dédiée à l'édification du Corps de Christ au Gabon et dans les nations.">
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <!-- font awesome icons CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* ─── Page-specific overrides ─── */
+    .hero-logo-main {
+      height: 130px;
+      width: auto;
+      margin: 0 auto 1.5rem;
+      filter: drop-shadow(0 8px 30px rgba(0,0,0,0.5));
+      animation: fadeDown 0.9s ease both;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero h1 { animation: fadeDown 0.9s 0.2s ease both; }
+    .hero-subtitle { animation: fadeDown 0.9s 0.35s ease both; }
+    .hero-ref { animation: fadeDown 0.9s 0.45s ease both; }
+    .hero-actions { animation: fadeDown 0.9s 0.55s ease both; }
+
+    /* Verse rotator */
+    .verse-rotator {
+      background: var(--dark);
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .verse-rotator::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 50% 50%, rgba(240,165,0,0.08) 0%, transparent 65%);
+    }
+    .v-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.05rem, 2vw, 1.4rem);
+      color: var(--white);
+      max-width: 800px;
+      margin: 0 auto 0.8rem;
+      transition: opacity 0.3s ease;
+      position: relative; z-index: 1;
+    }
+    .v-ref {
+      color: var(--gold);
+      font-size: 0.87rem;
+      font-weight: 600;
+      transition: opacity 0.3s ease;
+      position: relative; z-index: 1;
+    }
+    .v-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-top: 1.25rem;
+      position: relative; z-index: 1;
+    }
+    .v-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.25);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .v-dot.active, .v-dot:hover {
+      background: var(--gold);
+      transform: scale(1.2);
+    }
+
+    /* Feature icons row */
+    .feature-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .feature-icon-item {
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .feature-icon-item:hover { background: rgba(74,74,196,0.03); }
+    .feature-icon-item:nth-child(4n) { border-right: none; }
+    .feature-icon-item .icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .feature-icon-item h4 { font-family: 'Poppins', sans-serif; font-size: 0.9rem; color: var(--dark); margin-bottom: 0.4rem; }
+    .feature-icon-item p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
+
+    /* Mission banner */
+    .mission-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%);
+      padding: 4.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .mission-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("../imag/Fichier 2.png") center/180px no-repeat;
+      opacity: 0.06;
+    }
+    .mission-banner h2 { color: var(--white); margin-bottom: 1rem; }
+    .mission-banner p { color: rgba(255,255,255,0.75); max-width: 700px; margin: 0 auto 2rem; font-size: 1rem; }
+
+    /* Conditions section */
+    .conditions-list { display: flex; flex-direction: column; gap: 1.25rem; }
+    .condition-item {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .condition-item:hover { transform: translateX(6px); border-color: var(--primary); }
+    .condition-num {
+      min-width: 44px; height: 44px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(74,74,196,0.3);
+    }
+    .condition-item h4 { color: var(--dark); margin-bottom: 0.4rem; }
+    .condition-item p { color: var(--text-light); font-size: 0.88rem; margin: 0; }
+
+    /* News teaser */
+    .news-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .news-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(74,74,196,0.18); }
+    .news-card-head {
+      height: 220px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .news-card-head::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    }
+    .news-card-body { padding: 1.5rem; }
+    .news-tag {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.75rem; border-radius: 50px; margin-bottom: 0.75rem;
+      background: rgba(74,74,196,0.1); color: var(--primary);
+    }
+    .news-card-body h4 { color: var(--dark); margin-bottom: 0.5rem; font-size: 1rem; }
+    .news-card-body p { color: var(--text-light); font-size: 0.87rem; margin-bottom: 1rem; }
+    .news-card-body a { color: var(--primary); font-weight: 600; font-size: 0.85rem; }
+    .news-card-body a:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .feature-icons { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .feature-icons { grid-template-columns: 1fr; }
+      .hero-logo-main { height: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text">
+        <span>Réveil Spirituel</span>
+        <span>Gabon &amp; Nations</span>
+      </div>
+    </a>
+
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link active" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" aria-haspopup="true">Actualités <span class="arrow">&#9660;</span></a>
+        <div class="dropdown" role="menu">
+          <a href="projets.html" role="menuitem"><i class="fa fa-rocket" style="width:16px"></i> Projets Avenir</a>
+          <a href="videos.html" role="menuitem"><i class="fa fa-play-circle" style="width:16px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html" role="menuitem"><i class="fa fa-book" style="width:16px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" role="banner">
+    <div class="hero-bg"></div>
+    <div class="particles" aria-hidden="true"></div>
+    <img class="hero-watermark" src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="" aria-hidden="true">
+
+    <div class="hero-content">
+      <img class="hero-logo-main" src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+
+      <div class="hero-badge">
+        <img src="../imag/Fichier 2.png" alt="" style="height:16px;"> Le Réveil est en marche !
+      </div>
+
+      <h1>
+        <span class="gold">Réveillez-vous,</span><br>
+        Fils et Filles d'Élohim
+      </h1>
+
+      <p class="hero-subtitle">
+        « C'est pourquoi il dit : Réveille-toi, toi qui dors, et relève-toi d'entre les morts,<br>
+        et le Mashiah brillera sur toi. »
+      </p>
+      <p class="hero-ref">Éphésiens 5:14</p>
+
+      <div class="hero-actions">
+        <a href="vision.html" class="btn btn-gold btn-lg">
+          <i class="fa fa-compass"></i> Découvrir la Vision
+        </a>
+        <a href="soutenir.html" class="btn btn-outline btn-lg">
+          <i class="fa fa-heart"></i> Nous Soutenir
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">Défiler</div>
+  </section>
+
+  <!-- ============ BANNER ============ -->
+  <div class="cta-banner" role="complementary">
+    <p>
+      <i class="fa fa-fire"></i>&nbsp;
+      Réveil Spirituel n'est pas le nom d'une dénomination — Nous présentons l'unique moyen de salut aux hommes :
+      <strong>Yéhoshou'a ha Mashiah</strong>
+      &nbsp;<i class="fa fa-fire"></i>
+    </p>
+  </div>
+
+  <!-- ============ ROTATING VERSE ============ -->
+  <div class="verse-rotator" role="region" aria-label="Versets bibliques">
+    <p class="v-text">"C'est pourquoi il dit : Réveille-toi, toi qui dors, et relève-toi d'entre les morts, et le Mashiah brillera sur toi."</p>
+    <p class="v-ref">— Éphésiens 5:14</p>
+    <div class="v-dots">
+      <button class="v-dot active" aria-label="Verset 1"></button>
+      <button class="v-dot" aria-label="Verset 2"></button>
+      <button class="v-dot" aria-label="Verset 3"></button>
+      <button class="v-dot" aria-label="Verset 4"></button>
+      <button class="v-dot" aria-label="Verset 5"></button>
+    </div>
+  </div>
+
+  <!-- ============ ASPIRATION ============ -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Notre cœur</span>
+        <h2>Une Aspiration à une Profonde Intimité</h2>
+        <p>Un besoin urgent d'un réveil des peuples — nous partageons avec vous des vérités bibliques pour un retour à l'authenticité de la foi.</p>
+        <div class="gold-bar"></div>
+      </div>
+
+      <div class="split">
+        <div class="split-content reveal-left">
+          <span class="section-tag">Retour aux origines</span>
+          <h2>Une Invitation à Retrouver l'Essence de la Foi</h2>
+          <p>Dans un monde en quête de sens, un appel retentit : celui de revenir aux origines bibliques. Ce retour ne signifie pas un simple voyage dans le passé, mais une redécouverte de la pureté et de l'authenticité de la foi.</p>
+          <div class="verse-inline">
+            <p>« Ainsi parle l'Éternel : arrêtez-vous sur les routes, regardez, et demandez quels sont les anciens sentiers, quelle est la bonne voie ; marchez-y, et vous trouverez le repos de vos âmes. »</p>
+            <cite>Jérémie 6:16</cite>
+          </div>
+          <p>Revenir aux origines bibliques, c'est se dépouiller des couches de religiosité et des doctrines humaines qui ont obscurci la Parole vivante — s'abreuver à la source d'eau vive.</p>
+          <a href="vision.html" class="btn btn-primary mt-3">
+            <i class="fa fa-arrow-right"></i> En savoir plus
+          </a>
+        </div>
+        <div class="split-image reveal-right">
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%); height: 420px; border-radius: 16px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden;">
+            <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Réveil Spirituel" style="height: 220px; opacity: 0.85; filter: drop-shadow(0 10px 30px rgba(0,0,0,0.5));">
+            <div style="position:absolute; bottom: 0; left: 0; right: 0; padding: 1.5rem; background: linear-gradient(to top, rgba(15,15,45,0.9), transparent);">
+              <p style="color: var(--gold); font-style: italic; font-family: 'Playfair Display', serif; font-size: 0.9rem; margin: 0; text-align: center;">
+                « Le réveil des peuples est en marche avec Yéhoshou'a ! »
+              </p>
+            </div>
+          </div>
+          <div class="split-image-decor"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURE ICONS ============ -->
+  <section class="section-sm">
+    <div class="container">
+      <div class="feature-icons stagger">
+        <div class="feature-icon-item">
+          <div class="icon">📖</div>
+          <h4>Enseignements Bibliques</h4>
+          <p>Vérités apostoliques et prophétiques fondées sur la Parole</p>
+        </div>
+        <div class="feature-icon-item">
+          <div class="icon">🔥</div>
+          <h4>Réveil des Peuples</h4>
+          <p>Missions évangéliques au Gabon et dans les nations</p>
+        </div>
+        <div class="feature-icon-item">
+          <div class="icon">🙏</div>
+          <h4>Prière &amp; Intercession</h4>
+          <p>Séances de prière, délivrance et guérison</p>
+        </div>
+        <div class="feature-icon-item">
+          <div class="icon">🎵</div>
+          <h4>Musique &amp; Adoration</h4>
+          <p>Formation musicale et chants inspirés par l'Esprit</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MISSION BANNER ============ -->
+  <div class="mission-banner">
+    <div class="container">
+      <div class="reveal">
+        <span class="section-tag" style="background:rgba(255,255,255,0.15);color:var(--gold-light);">Notre Mission</span>
+        <h2>Parcourir les Nations avec le Message de la Croix</h2>
+        <p>Nous ne pouvons plus rester insensibles aux cris des nations et des véritables fils d'Élohim. Seul un Évangile christocentrique peut réellement libérer les hommes de la captivité du péché.</p>
+        <a href="vision.html" class="btn btn-gold btn-lg">
+          <i class="fa fa-globe"></i> Découvrir nos Missions
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CONDITIONS REVEIL ============ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Préconditions</span>
+        <h2>Quelques Conditions qui Précèdent les Vagues de Réveil Collectif</h2>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="grid grid-2">
+        <div class="conditions-list reveal-left">
+          <div class="condition-item">
+            <div class="condition-num">1</div>
+            <div>
+              <h4>La Vraie Repentance</h4>
+              <p>La repentance n'est pas simplement un sentiment de remords, mais une transformation radicale de l'esprit et du cœur, conduisant à une obéissance renouvelée envers Élohim.</p>
+            </div>
+          </div>
+          <div class="condition-item">
+            <div class="condition-num">2</div>
+            <div>
+              <h4>La Prière Individuelle et Collective</h4>
+              <p>Lorsque les croyants sont profondément engagés dans la prière, en centrant leur cœur sur le désir d'un réveil authentique, cela crée un environnement propice à l'action divine.</p>
+            </div>
+          </div>
+          <div class="condition-item">
+            <div class="condition-num">3</div>
+            <div>
+              <h4>La Pureté de l'Âme</h4>
+              <p>« Si mon peuple, sur lequel mon Nom est invoqué, s'humilie, prie, et cherche mes faces, et s'il se détourne de ses mauvaises voies, alors je l'entendrai des cieux. »</p>
+            </div>
+          </div>
+        </div>
+        <div class="reveal-right" style="background: linear-gradient(135deg, var(--dark) 0%, var(--navy) 100%); border-radius: var(--radius); padding: 3rem 2rem; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; position: relative; overflow: hidden;">
+          <div style="position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(240,165,0,0.1) 0%, transparent 65%);"></div>
+          <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="" style="height:140px; margin-bottom: 1.5rem; opacity: 0.9; position: relative; z-index: 1; filter: drop-shadow(0 8px 20px rgba(0,0,0,0.4));">
+          <h3 style="color: var(--white); margin-bottom: 1rem; position: relative; z-index: 1;">
+            « Vous êtes la lumière du monde »
+          </h3>
+          <p style="color: rgba(255,255,255,0.68); font-size: 0.88rem; max-width: 320px; margin-bottom: 1.5rem; position: relative; z-index: 1;">
+            Une ville située sur une montagne ne peut être cachée. La Nation est appelée à être cette lumière.
+          </p>
+          <cite style="color: var(--gold); font-size: 0.85rem; font-weight: 600; position: relative; z-index: 1;">— Matthieu 5:14</cite>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ACTUALITÉS TEASER ============ -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Actualités</span>
+        <h2>Dernières Nouvelles</h2>
+        <p>Restez connectés à ce que le Seigneur accomplit à travers la mission Réveil Spirituel.</p>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="grid grid-3 stagger">
+        <div class="news-card">
+          <div class="news-card-head" style="background: linear-gradient(135deg, #3a3a80 0%, var(--dark) 100%);">📚</div>
+          <div class="news-card-body">
+            <span class="news-tag">Ouvrages</span>
+            <h4>YHWH Échad, Peuple Un</h4>
+            <p>Téléchargez et lisez nos ouvrages pour votre édification spirituelle. Disponible en ligne gratuitement.</p>
+            <a href="ouvrages.html">Lire l'article <i class="fa fa-arrow-right" style="font-size:0.75rem"></i></a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-head" style="background: linear-gradient(135deg, #5a3a00 0%, #2a1a00 100%);">🎧</div>
+          <div class="news-card-body">
+            <span class="news-tag" style="background:rgba(240,165,0,0.12);color:var(--gold-dark);">Audio</span>
+            <h4>Combattre dans la Prière</h4>
+            <p>Écoutez nos enseignements audio pour vous équiper dans la vie de prière et la marche chrétienne.</p>
+            <a href="ouvrages.html#audio">Écouter <i class="fa fa-arrow-right" style="font-size:0.75rem"></i></a>
+          </div>
+        </div>
+        <div class="news-card">
+          <div class="news-card-head" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);">🚀</div>
+          <div class="news-card-body">
+            <span class="news-tag" style="background:rgba(34,197,94,0.1);color:#16a34a;">À venir</span>
+            <h4>Projets Avenir</h4>
+            <p>Découvrez les prochaines initiatives et projets que le Seigneur prépare pour cette vision prophétique.</p>
+            <a href="projets.html">Découvrir <i class="fa fa-arrow-right" style="font-size:0.75rem"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4 reveal">
+        <a href="ouvrages.html" class="btn btn-outline-gold">
+          Voir toutes les actualités <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAROUSEL ÉVÉNEMENTS À VENIR ============ -->
+  <section class="section bg-light" id="events-carousel">
+    <div class="container">
+      <div class="carousel-wrap">
+        <div class="carousel-header">
+          <div>
+            <span class="section-tag"><i class="fa fa-calendar-alt"></i> Agenda</span>
+            <h2>Événements <span class="gradient-text">À Venir</span></h2>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Précédent"><i class="fa fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Suivant"><i class="fa fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="carousel-track-outer">
+          <div class="carousel-track">
+            <div class="carousel-slide">
+              <div class="event-card">
+                <div class="event-card-img"><img src="../imag/Screenshot 2026-04-01 154245.png" alt="Camp de Réveil" loading="lazy"><div class="event-date-badge"><span class="day">18</span><span class="month">MAI</span></div></div>
+                <div class="event-card-body"><span class="event-tag"><i class="fa fa-map-marker-alt"></i> Libreville</span><h4>Camp de Réveil — Libreville 2026</h4><p class="event-meta"><i class="fa fa-calendar"></i> 18–20 Mai 2026</p></div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="event-card">
+                <div class="event-card-img"><img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Conférence" loading="lazy" style="object-fit:contain;padding:1rem;background:#f0f3fb"><div class="event-date-badge"><span class="day">07</span><span class="month">JUIN</span></div></div>
+                <div class="event-card-body"><span class="event-tag"><i class="fa fa-microphone"></i> National</span><h4>Conférence Prophétique Nationale</h4><p class="event-meta"><i class="fa fa-calendar"></i> 7 Juin 2026</p></div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="event-card">
+                <div class="event-card-img"><img src="../imag/Fichier 1-1.png" alt="École Biblique" loading="lazy"><div class="event-date-badge"><span class="day">15</span><span class="month">JUIL</span></div></div>
+                <div class="event-card-body"><span class="event-tag"><i class="fa fa-book-open"></i> Formation</span><h4>École Biblique d'Été Session 1</h4><p class="event-meta"><i class="fa fa-calendar"></i> Juil–Août 2026</p></div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="event-card">
+                <div class="event-card-img"><img src="../imag/Fichier 2.png" alt="Nuit de Prière" loading="lazy" style="object-fit:contain;padding:1rem;background:#f7f9ff"><div class="event-date-badge"><span class="day">01</span><span class="month">AOÛT</span></div></div>
+                <div class="event-card-body"><span class="event-tag"><i class="fa fa-pray"></i> Intercession</span><h4>Nuit de Prière &amp; d'Intercession</h4><p class="event-meta"><i class="fa fa-calendar"></i> 1er Août 2026</p></div>
+              </div>
+            </div>
+            <div class="carousel-slide">
+              <div class="event-card">
+                <div class="event-card-img"><img src="../imag/Screenshot 2026-04-01 154245.png" alt="Missions" loading="lazy"><div class="event-date-badge"><span class="day">20</span><span class="month">SEP</span></div></div>
+                <div class="event-card-body"><span class="event-tag"><i class="fa fa-globe-africa"></i> Mission</span><h4>Mission dans les Provinces 2026</h4><p class="event-meta"><i class="fa fa-calendar"></i> Sep–Oct 2026</p></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAROUSEL LIVRES À VENIR ============ -->
+  <section class="section" id="books-carousel">
+    <div class="container">
+      <div class="carousel-wrap">
+        <div class="carousel-header">
+          <div>
+            <span class="section-tag"><i class="fa fa-book"></i> Publications</span>
+            <h2>Livres <span class="gradient-text">à Découvrir</span></h2>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-btn carousel-btn-prev" aria-label="Précédent"><i class="fa fa-chevron-left"></i></button>
+            <button class="carousel-btn carousel-btn-next" aria-label="Suivant"><i class="fa fa-chevron-right"></i></button>
+          </div>
+        </div>
+        <div class="carousel-track-outer">
+          <div class="carousel-track">
+            <div class="carousel-slide"><div class="book-up-card"><div class="book-up-cover"><img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="YHWH Echad"><span class="book-up-badge badge-available">Disponible</span></div><div class="book-up-body"><span class="book-up-type">Théologie Prophétique</span><h4>YHWH Echad, Peuple Un</h4><a href="https://drive.google.com/file/d/1ErPRuaLhNfWtvQ6auaOc_OXoSQGQ7qyp/view" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-gold" style="margin-top:0.5rem;font-size:0.75rem"><i class="fa fa-download"></i> Télécharger</a></div></div></div>
+            <div class="carousel-slide"><div class="book-up-card"><div class="book-up-cover"><img src="../imag/Fichier 2.png" alt="Babylone"><span class="book-up-badge badge-available">Disponible</span></div><div class="book-up-body"><span class="book-up-type">Eschatologie</span><h4>Babylone la Grande est Tombée</h4><a href="https://drive.google.com/file/d/10tczppva8fSyMHuLy3r1Q2k97m5HGx8Q/view" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-gold" style="margin-top:0.5rem;font-size:0.75rem"><i class="fa fa-download"></i> Télécharger</a></div></div></div>
+            <div class="carousel-slide"><div class="book-up-card"><div class="book-up-cover"><img src="../imag/Fichier 1-1.png" alt="Le Retour d'Yisraël"><span class="book-up-badge badge-upcoming">À paraître</span></div><div class="book-up-body"><span class="book-up-type">Restauration</span><h4>Le Retour d'Yisraël</h4><div class="book-up-progress"><div class="plabel"><span>Rédaction</span><span>70%</span></div><div class="pbar"><div class="pbar-fill" style="width:70%"></div></div></div></div></div></div>
+            <div class="carousel-slide"><div class="book-up-card"><div class="book-up-cover"><img src="../imag/logo reveil spirituel R_Plan de travail 1 copie.png" alt="Manuel Disciple"><span class="book-up-badge badge-upcoming">À paraître</span></div><div class="book-up-body"><span class="book-up-type">Disciplat</span><h4>Manuel du Disciple Consacré</h4><div class="book-up-progress"><div class="plabel"><span>Rédaction</span><span>40%</span></div><div class="pbar"><div class="pbar-fill" style="width:40%"></div></div></div></div></div></div>
+            <div class="carousel-slide"><div class="book-up-card"><div class="book-up-cover"><img src="../imag/Fichier 2.png" alt="Fêtes de YHWH"><span class="book-up-badge badge-upcoming">À paraître</span></div><div class="book-up-body"><span class="book-up-type">Torah</span><h4>Les Fêtes de YHWH — Guide</h4><div class="book-up-progress"><div class="plabel"><span>Rédaction</span><span>20%</span></div><div class="pbar"><div class="pbar-fill" style="width:20%"></div></div></div></div></div></div>
+          </div>
+        </div>
+        <div class="carousel-dots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA JOIN ============ -->
+  <section class="verse-block">
+    <div class="container-sm">
+      <blockquote>
+        « Car la Terre sera remplie de la connaissance de la gloire de YHWH, comme le fond de la mer par les eaux qui le couvrent. »
+      </blockquote>
+      <cite>Chabaqquwq (Habaquq) 2:14</cite>
+      <div style="margin-top: 2.5rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <a href="soutenir.html" class="btn btn-gold">
+          <i class="fa fa-hands-helping"></i> Participer à la Mission
+        </a>
+        <a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+          <i class="fa fa-phone"></i> Nous Contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Réveil Spirituel est une vision multifonctionnelle et anti-dénominationnelle que le Seigneur nous a confiée pour l'édification des fils et des filles d'Élohim, au Gabon et dans les nations.</p>
+        <p class="footer-tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-links mt-3">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube">
+            <i class="fab fa-youtube"></i>
+          </a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp canal">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Nous appeler">
+            <i class="fa fa-phone"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Accueil</a></li>
+          <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> La Vision</a></li>
+          <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Lire la Bible</a></li>
+          <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nous Soutenir</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Actualités</h5>
+        <ul>
+          <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Projets Avenir</a></li>
+          <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nos Vidéos</a></li>
+          <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Ouvrages</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:14px"></i> Email</a></li>
+          <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:14px"></i> +241 74 214 316</a></li>
+          <li><a href="#"><i class="fa fa-map-marker-alt" style="width:14px"></i> Libreville, Gabon</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

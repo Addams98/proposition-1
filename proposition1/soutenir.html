@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous Soutenir – Réveil Spirituel</title>
+  <meta name="description" content="Soutenez la mission Réveil Spirituel par la prière, l'annonce de la vision et vos dons financiers. Chaque geste contribue à faire avancer le Royaume.">
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .ways-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+    .way-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .way-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    }
+    .way-card.gold-accent::before {
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    }
+    .way-card.green-accent::before {
+      background: linear-gradient(90deg, #16a34a, #4ade80);
+    }
+    .way-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(74,74,196,0.18);
+    }
+    .way-icon {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin: 0 auto 1.25rem;
+    }
+    .way-icon.primary-icon { background: linear-gradient(135deg, var(--primary), var(--primary-light)); box-shadow: 0 8px 20px rgba(74,74,196,0.3); }
+    .way-icon.gold-icon { background: linear-gradient(135deg, var(--gold), var(--gold-dark)); box-shadow: 0 8px 20px rgba(240,165,0,0.3); }
+    .way-icon.green-icon { background: linear-gradient(135deg, #16a34a, #22c55e); box-shadow: 0 8px 20px rgba(22,163,74,0.3); }
+    .way-card h3 { color: var(--dark); margin-bottom: 0.75rem; font-size: 1.15rem; }
+    .way-card p { color: var(--text-light); font-size: 0.88rem; }
+
+    .donation-section {
+      background: var(--cream);
+      border-radius: var(--radius);
+      padding: 3rem;
+      border: 1px solid rgba(240,165,0,0.2);
+      margin-bottom: 3rem;
+    }
+    .donation-section h3 { color: var(--dark); margin-bottom: 0.5rem; }
+    .donation-section > p { color: var(--text-light); margin-bottom: 2rem; }
+
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .payment-item {
+      background: var(--white);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem 1.5rem;
+      border: 1px solid var(--border);
+      transition: var(--transition);
+    }
+    .payment-item:hover { border-color: var(--gold); }
+    .payment-item .label { font-size: 0.72rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.3rem; }
+    .payment-item .name { font-weight: 700; color: var(--dark); font-size: 0.95rem; margin-bottom: 0.15rem; }
+    .payment-item .phone { color: var(--primary); font-weight: 600; font-size: 0.88rem; }
+
+    .contact-cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-cta::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(240,165,0,0.12) 0%, transparent 65%);
+    }
+    .contact-cta h3, .contact-cta p { position: relative; z-index: 1; }
+    .contact-cta h3 { color: var(--white); margin-bottom: 0.5rem; }
+    .contact-cta p { color: rgba(255,255,255,0.72); font-size: 0.9rem; margin-bottom: 1.5rem; }
+    .contact-cta .btns { position: relative; z-index: 1; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .google-form-cta {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 2rem;
+      border: 2px dashed rgba(74,74,196,0.3);
+      text-align: center;
+      transition: var(--transition);
+    }
+    .google-form-cta:hover { border-color: var(--primary); background: rgba(74,74,196,0.02); }
+    .google-form-cta .form-icon { font-size: 2.5rem; margin-bottom: 0.75rem; }
+    .google-form-cta h4 { color: var(--dark); margin-bottom: 0.5rem; }
+    .google-form-cta p { color: var(--text-light); font-size: 0.88rem; margin-bottom: 1.25rem; }
+
+    @media (max-width: 900px) {
+      .ways-grid { grid-template-columns: 1fr; }
+      .payment-grid { grid-template-columns: 1fr; }
+      .donation-section { padding: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text">
+        <span>Réveil Spirituel</span>
+        <span>Gabon &amp; Nations</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Actualités <span class="arrow">&#9660;</span></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:16px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:16px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:16px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link active nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" role="banner">
+    <div class="page-hero-content">
+      <span class="section-tag" style="background:rgba(240,165,0,0.15);color:var(--gold-light);">Participer</span>
+      <h1 class="text-white">Nous Soutenir</h1>
+      <p class="verse">
+        « Que chacun donne comme il l'a résolu en son cœur, sans tristesse ni contrainte ; car Dieu aime celui qui donne avec joie. »
+      </p>
+      <p class="verse-ref">2 Corinthiens 9:7</p>
+      <div class="gold-bar"></div>
+    </div>
+  </header>
+
+  <!-- WAYS TO SUPPORT -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Comment Soutenir ?</span>
+        <h2>Il y a Plusieurs Façons de Porter la Mission</h2>
+        <p>Chaque forme de soutien est précieuse. Choisissez celle qui vous correspond et devenez un partenaire de cette vision.</p>
+        <div class="gold-bar"></div>
+      </div>
+
+      <div class="ways-grid stagger">
+        <div class="way-card">
+          <div class="way-icon primary-icon">🙏</div>
+          <h3>1. La Prière</h3>
+          <p>Chers amis, vos prières sont le souffle qui porte nos projets plus haut. Soutenez-nous en priant avec nous avec foi ! La prière est la première et la plus puissante forme de soutien.</p>
+        </div>
+
+        <div class="way-card green-accent">
+          <div class="way-icon green-icon">📢</div>
+          <h3>2. Communiquer</h3>
+          <p>Partagez cette vision autour de vous et devenez des ambassadeurs de ce fardeau commun. Parlez-en à vos proches, partagez sur les réseaux sociaux, diffusez la Bonne Nouvelle.</p>
+        </div>
+
+        <div class="way-card gold-accent">
+          <div class="way-icon gold-icon">💛</div>
+          <h3>3. Faire un Don</h3>
+          <p>Votre soutien matériel et financier est une semence précieuse pour faire grandir cette vision. Chaque geste, petit ou grand, contribue à faire avancer le Royaume et à impacter des vies.</p>
+        </div>
+      </div>
+
+      <!-- DONATION WAYS -->
+      <div class="donation-section reveal">
+        <h3><i class="fa fa-donate" style="color:var(--gold); margin-right: 0.5rem"></i> Faire un Don</h3>
+        <p>Voici les différents moyens de faire parvenir vos soutiens financiers :</p>
+
+        <div class="payment-grid">
+          <div class="payment-item">
+            <div class="label">Contact Principal</div>
+            <div class="name">ENGONGA STEPHANAS GRACE</div>
+            <div class="phone"><i class="fab fa-whatsapp"></i> +241 74 255 323</div>
+          </div>
+          <div class="payment-item">
+            <div class="label">Contact Principal</div>
+            <div class="name">NFONO NZOGOBE GERMAINE</div>
+            <div class="phone"><i class="fab fa-whatsapp"></i> +241 62 438 323</div>
+          </div>
+          <div class="payment-item">
+            <div class="label">Email de Contact</div>
+            <div class="name">Donation par Email</div>
+            <div class="phone"><i class="fa fa-envelope"></i> reunion2reveilspirituel@gmail.com</div>
+          </div>
+          <div class="payment-item">
+            <div class="label">En cours de mise en place</div>
+            <div class="name">PayPal</div>
+            <div class="phone" style="color:var(--text-light)"><i class="fab fa-paypal"></i> En cours de configuration</div>
+          </div>
+        </div>
+
+        <div class="google-form-cta">
+          <div class="form-icon">📋</div>
+          <h4>Formulaire de Don en Ligne</h4>
+          <p>Remplissez notre formulaire en ligne pour nous faire parvenir votre don et vos informations de contact.</p>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjEPh2A8Zihfjwsi2qLjWqbOZkGpKStH9gDQB8kNJ5uk7kJw/viewform?usp=header"
+             target="_blank" rel="noopener noreferrer"
+             class="btn btn-gold btn-lg">
+            <i class="fa fa-external-link-alt"></i> Cliquez ici pour faire un don
+          </a>
+        </div>
+      </div>
+
+      <!-- CONTACT CTA -->
+      <div class="contact-cta reveal">
+        <h3>Nous Contacter Directement</h3>
+        <p>Pour toute question concernant la mission ou votre soutien, n'hésitez pas à nous joindre directement.</p>
+        <div class="btns">
+          <a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer" class="btn btn-gold">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="mailto:reunion2reveilspirituel@gmail.com" class="btn btn-outline">
+            <i class="fa fa-envelope"></i> Email
+          </a>
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            <i class="fab fa-youtube"></i> YouTube
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSE BLOCK -->
+  <div class="verse-block">
+    <div class="container-sm">
+      <blockquote>
+        « Car là où est ton trésor, là aussi sera ton cœur. »
+      </blockquote>
+      <cite>Matthieu 6:21</cite>
+      <div style="margin-top: 2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="vision.html" class="btn btn-gold">
+          <i class="fa fa-compass"></i> Découvrir la Vision
+        </a>
+        <a href="index.html" class="btn btn-outline">
+          <i class="fa fa-home"></i> Retour à l'Accueil
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="footer-tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-links mt-3">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Accueil</a></li>
+          <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> La Vision</a></li>
+          <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Lire la Bible</a></li>
+          <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nous Soutenir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Actualités</h5>
+        <ul>
+          <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Projets Avenir</a></li>
+          <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nos Vidéos</a></li>
+          <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Ouvrages</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:14px"></i> Email</a></li>
+          <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:14px"></i> +241 74 214 316</a></li>
+          <li><a href="#"><i class="fa fa-map-marker-alt" style="width:14px"></i> Libreville, Gabon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

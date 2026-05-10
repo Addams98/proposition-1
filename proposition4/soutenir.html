@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nous Soutenir – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .support-warm-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:900px){ .support-warm-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .support-warm-grid{grid-template-columns:1fr;} }
+    .support-warm-card { border:1px solid rgba(217,119,6,0.18); border-radius:14px; padding:2.25rem 1.75rem; background:#fff; text-align:center; transition:all 0.25s; }
+    .support-warm-card:hover { border-color:var(--amber); transform:translateY(-5px); box-shadow:0 8px 28px rgba(59,26,8,0.1); }
+    .support-warm-num { display:inline-flex; align-items:center; justify-content:center; width:48px; height:48px; border-radius:50%; font-size:1.4rem; font-weight:800; margin-bottom:1rem; }
+    .support-warm-num.amber-n { background:rgba(217,119,6,0.12); color:var(--amber); }
+    .support-warm-num.terra-n { background:rgba(194,65,12,0.12); color:var(--terra); }
+    .support-warm-card h3 { color:var(--brown); font-size:1.1rem; margin-bottom:0.5rem; }
+    .support-warm-card p { font-size:0.83rem; color:#7a5c3d; }
+    .contact-warm-grid { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+    @media(max-width:700px){ .contact-warm-grid{grid-template-columns:1fr;} }
+    .contact-warm-card { background:#fff; border:1px solid rgba(217,119,6,0.18); border-radius:12px; padding:2rem; display:flex; flex-direction:column; gap:0.75rem; }
+    .contact-warm-name { font-weight:700; font-size:0.9rem; color:var(--brown); }
+    .contact-warm-role { font-size:0.75rem; color:var(--amber); font-style:italic; }
+    .contact-warm-line { display:flex; align-items:center; gap:0.6rem; font-size:0.83rem; color:#7a5c3d; }
+    .contact-warm-line a { color:#7a5c3d; text-decoration:none; }
+    .contact-warm-line a:hover { color:var(--amber); }
+    .form-warm { max-width:700px; margin:0 auto; background:#fff; border:1px solid rgba(217,119,6,0.15); border-radius:14px; padding:2.5rem; box-shadow:0 4px 20px rgba(59,26,8,0.06); }
+    .form-warm p { color:#7a5c3d; font-size:0.85rem; margin-bottom:1.5rem; text-align:center; }
+    .form-warm .btn { display:inline-flex; margin:0 auto; }
+    .email-warm { background:rgba(253,246,236,0.7); border:1px solid rgba(217,119,6,0.2); border-radius:10px; padding:1.25rem 1.75rem; display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; margin-top:1rem; }
+    .email-warm i { color:var(--amber); font-size:1.1rem; }
+    .email-warm a { color:var(--brown); font-weight:600; text-decoration:none; }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.55rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta active" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="section-tag" style="display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1rem"><i class="fa fa-hands-helping"></i> Participer</div>
+        <h1>Nous Soutenir</h1>
+        <p>Chaque acte de soutien — prière, communication ou don — contribue à l'avancement du Règne de YHWH au Gabon et dans les nations.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-heart"></i> Engagement</span>
+        <div class="amber-bar"></div>
+        <h2>Comment Participer</h2>
+        <p>Trois façons concrètes de porter la vision avec nous.</p>
+      </div>
+      <div class="support-warm-grid stagger">
+        <div class="support-warm-card">
+          <div class="support-warm-num amber-n">1</div>
+          <h3>La Prière</h3>
+          <p>Portez la mission dans votre intercession quotidienne. Priez pour les dirigeants, les projets, le réveil au Gabon et dans les nations. La prière est le moteur de tout réveil authentique.</p>
+        </div>
+        <div class="support-warm-card">
+          <div class="support-warm-num terra-n">2</div>
+          <h3>Communiquer</h3>
+          <p>Partagez nos contenus, parlez de la mission autour de vous, invitez vos proches à rejoindre la communauté. La Parole se répand par le témoignage de chacun.</p>
+        </div>
+        <div class="support-warm-card">
+          <div class="support-warm-num amber-n">3</div>
+          <h3>Don Financier</h3>
+          <p>Vos dons permettent de financer les camps de réveil, les missions en provinces, l'école biblique et la production de ressources. Chaque contribution compte.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--cream-mid, #f5e8d0)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Contacts</span>
+        <div class="amber-bar"></div>
+        <h2>Nous Contacter</h2>
+        <p>Pour un don ou pour toute information relative à la mission, contactez directement nos responsables.</p>
+      </div>
+      <div class="contact-warm-grid stagger">
+        <div class="contact-warm-card">
+          <div class="contact-warm-name">ENGONGA STEPHANAS GRACE</div>
+          <div class="contact-warm-role">Responsable de la Mission</div>
+          <div class="contact-warm-line"><i class="fa fa-phone" style="color:var(--amber);width:14px"></i><a href="tel:+24174255323">+241 74 255 323</a></div>
+          <div class="contact-warm-line"><i class="fab fa-whatsapp" style="color:#25d366;width:14px"></i><a href="https://wa.me/24174255323" target="_blank" rel="noopener noreferrer">WhatsApp disponible</a></div>
+          <div class="contact-warm-line"><i class="fa fa-envelope" style="color:var(--amber);width:14px"></i><a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></div>
+        </div>
+        <div class="contact-warm-card">
+          <div class="contact-warm-name">NFONO NZOGOBE GERMAINE</div>
+          <div class="contact-warm-role">Responsable Ressources</div>
+          <div class="contact-warm-line"><i class="fa fa-phone" style="color:var(--amber);width:14px"></i><a href="tel:+24162438323">+241 62 438 323</a></div>
+          <div class="contact-warm-line"><i class="fab fa-whatsapp" style="color:#25d366;width:14px"></i><a href="https://wa.me/24162438323" target="_blank" rel="noopener noreferrer">WhatsApp disponible</a></div>
+          <div class="contact-warm-line"><i class="fa fa-map-marker-alt" style="color:var(--amber);width:14px"></i><span>Libreville, Gabon</span></div>
+        </div>
+      </div>
+      <div class="email-warm" style="max-width:600px;margin:2rem auto 0">
+        <i class="fa fa-envelope"></i>
+        <div>
+          <div style="font-size:0.75rem;color:#7a5c3d;margin-bottom:0.2rem">Adresse email officielle</div>
+          <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Formulaire</span>
+        <div class="amber-bar"></div>
+        <h2>Formulaire de Contact</h2>
+        <p>Remplissez notre formulaire en ligne pour nous envoyer votre message ou votre demande.</p>
+      </div>
+      <div class="form-warm reveal">
+        <p>Utilisez ce formulaire pour nous contacter, proposer votre aide, ou obtenir des informations sur comment participer à la mission.</p>
+        <div style="text-align:center">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdjEPh2A8Zihfjwsi2qLjWqbOZkGpKStH9gDQB8kNJ5uk7kJw/viewform" target="_blank" rel="noopener noreferrer" class="btn btn-amber"><i class="fa fa-paper-plane"></i> Accéder au Formulaire</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="verse-warm">
+    <div class="verse-warm-inner container">
+      <blockquote>« Que celui qui vous est enseigné la Parole fasse part de tous ses biens à celui qui l'enseigne. »</blockquote>
+      <cite>Galates 6:6</cite>
+    </div>
+  </div>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-warm reveal">
+        <div class="cta-warm-inner">
+          <span class="section-tag" style="background:rgba(253,246,236,0.12);color:var(--amber-light,#fcd34d);border-color:rgba(253,246,236,0.2)">Ensemble</span>
+          <h2>Un Peuple, Une Vision</h2>
+          <p>Rejoignez notre communauté sur WhatsApp pour suivre les dernières actualités de la mission et vous impliquer davantage.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+            <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-amber"><i class="fab fa-whatsapp"></i> Rejoindre le Canal</a>
+            <a href="projets.html" class="btn" style="background:rgba(253,246,236,0.1);color:var(--cream);border:1px solid rgba(253,246,236,0.25)"><i class="fa fa-rocket"></i> Nos Projets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Accueil</a></li>
+        <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> La Vision</a></li>
+        <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Lire la Bible</a></li>
+        <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Projets Avenir</a></li>
+        <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nos Vidéos</a></li>
+        <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px"></i> +241 74 214 316</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

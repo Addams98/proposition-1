@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Vision – Réveil Spirituel</title>
+  <meta name="description" content="Découvrez la vision apostolique et prophétique de Réveil Spirituel : qui nous sommes, comment la vision est née, et nos missions.">
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .mission-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .m-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .m-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 24px 60px rgba(74,74,196,0.18);
+      border-color: var(--primary);
+    }
+    .m-card-banner {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%);
+      padding: 2.5rem 1.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .m-card-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.04) 100%);
+    }
+    .m-card-icon {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+    }
+    .m-card-label {
+      background: rgba(240,165,0,0.25);
+      color: var(--gold-light);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border-radius: 50px;
+      display: inline-block;
+    }
+    .m-card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .m-card-body h4 { color: var(--dark); margin-bottom: 0.5rem; }
+    .m-card-body p { color: var(--text-light); font-size: 0.87rem; flex: 1; }
+
+    .nation-section {
+      background: linear-gradient(160deg, #0f2027 0%, #203a43 50%, #2c5364 100%);
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .nation-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 70% at 80% 50%, rgba(74,74,196,0.25) 0%, transparent 60%);
+    }
+    .nation-content { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+    .timeline {
+      position: relative;
+      padding-left: 2.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(240,165,0,0.1));
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .timeline-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .timeline-dot {
+      position: absolute;
+      left: -3.1rem;
+      top: 0.3rem;
+      width: 16px;
+      height: 16px;
+      background: var(--gold);
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 4px rgba(240,165,0,0.2);
+    }
+    .timeline-item h4 { color: var(--dark); margin-bottom: 0.5rem; font-size: 1.05rem; }
+    .timeline-item p { color: var(--text-light); font-size: 0.9rem; margin: 0; }
+
+    @media (max-width: 900px) {
+      .mission-card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .mission-card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text">
+        <span>Réveil Spirituel</span>
+        <span>Gabon &amp; Nations</span>
+      </div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link active" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Actualités <span class="arrow">&#9660;</span></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:16px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:16px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:16px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <header class="page-hero" role="banner">
+    <div class="page-hero-content">
+      <span class="section-tag" style="background:rgba(240,165,0,0.15);color:var(--gold-light);">Notre Vision</span>
+      <h1 class="text-white">La Vision</h1>
+      <p class="verse">
+        « Car la Terre sera remplie de la connaissance de la gloire de YHWH, comme le fond de la mer par les eaux qui le couvrent. »
+      </p>
+      <p class="verse-ref">Chabaqquwq (Habaquq) 2:14</p>
+      <div class="gold-bar"></div>
+    </div>
+  </header>
+
+  <!-- WHO WE ARE -->
+  <section class="section">
+    <div class="container">
+      <div class="split">
+        <div class="split-content reveal-left">
+          <span class="section-tag">Notre Identité</span>
+          <h2>Qui Sommes-Nous ?</h2>
+          <p>Réveil Spirituel est une vision multifonctionnelle et anti-dénominationnelle que le Seigneur nous a confiée pour l'édification des fils et des filles d'Élohim.</p>
+          <p>Nous encourageons et équipons les services au Gabon et dans les nations, via des enseignements apostoliques et prophétiques ayant pour fondement unique <strong>Yéhoshou'a ha Mashiah</strong> (Jésus-Christ de Nazareth).</p>
+          <div class="verse-inline">
+            <p>« Vous êtes la lumière du monde ; une ville située sur une montagne ne peut être cachée. »</p>
+            <cite>Matthieu 5:14</cite>
+          </div>
+          <div class="pill-list">
+            <span class="pill"><i class="fa fa-check"></i> Anti-dénominationnel</span>
+            <span class="pill"><i class="fa fa-check"></i> Apostolique &amp; Prophétique</span>
+            <span class="pill"><i class="fa fa-check"></i> Gabon &amp; Nations</span>
+            <span class="pill"><i class="fa fa-check"></i> Fondé sur Yéhoshou'a</span>
+          </div>
+        </div>
+        <div class="reveal-right" style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <div style="background: linear-gradient(135deg, var(--primary) 0%, var(--dark-mid) 100%); border-radius: var(--radius); padding: 2.5rem; position: relative; overflow: hidden; text-align: center;">
+            <div style="position:absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(240,165,0,0.15) 0%, transparent 65%);"></div>
+            <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="" style="height: 160px; margin: 0 auto; filter: drop-shadow(0 10px 25px rgba(0,0,0,0.4)); position: relative; z-index: 1;">
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-icon gold"><i class="fa fa-fire" style="color:var(--gold)"></i></div>
+              <h4>Vision Apostolique</h4>
+              <p>Déploiement de la vision de l'Évangile du Royaume de Jésus-Christ dans le monde, formation et libération des ministères.</p>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <div class="card-icon"><i class="fa fa-dove" style="color:var(--primary)"></i></div>
+              <h4>Vision Prophétique</h4>
+              <p>Le Saint-Esprit comme source d'inspiration et de révélation, compréhension des saisons spirituelles et restauration des dons.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APOSTOLIQUE & PROPHETIQUE -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Notre Fondement</span>
+        <h2>Une Vision Apostolique et Prophétique</h2>
+        <div class="gold-bar"></div>
+      </div>
+
+      <div class="grid grid-2" style="gap: 2.5rem">
+        <div class="card reveal-left">
+          <div class="card-body" style="padding: 2rem">
+            <div class="card-icon">
+              <i class="fa fa-cross" style="color:var(--primary)"></i>
+            </div>
+            <h3 class="text-primary">L'APOSTOLAT</h3>
+            <p>Dans le cadre de l'apostolat, nous croyons en la nécessité d'un véritable déploiement de la vision de l'Évangile du Royaume de Jésus-Christ dans le monde.</p>
+            <ul style="list-style: disc; padding-left: 1.25rem; color: var(--text-light); font-size: 0.9rem; line-height: 2;">
+              <li>Formation et libération des ministères</li>
+              <li>Acceptation de la diversité des grâces dans le Corps de Christ</li>
+              <li>Intégration de la pratique de la mission par tous les saints</li>
+              <li>Libération des visionnaires dans les différents champs</li>
+              <li>Rupture des barrières dénominationnelles et traditionnelles</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card reveal-right">
+          <div class="card-body" style="padding: 2rem">
+            <div class="card-icon gold">
+              <i class="fa fa-fire" style="color:var(--gold)"></i>
+            </div>
+            <h3 class="text-gold">LE PROPHÉTIQUE</h3>
+            <p>Nous considérons le Saint-Esprit comme une véritable source d'inspiration et de révélation, capable de mettre à notre disposition des enseignements révélés.</p>
+            <ul style="list-style: disc; padding-left: 1.25rem; color: var(--text-light); font-size: 0.9rem; line-height: 2;">
+              <li>Enseignements révélés sur les mystères du Royaume</li>
+              <li>Compréhension des saisons spirituelles</li>
+              <li>Restauration des manifestations des dons du Saint-Esprit</li>
+              <li>Don de révélation, prophétie, discernement des esprits</li>
+              <li>Parole de sagesse et parole de connaissance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NATION GABONAISE -->
+  <div class="nation-section">
+    <div class="nation-content">
+      <div class="grid grid-2" style="gap: 4rem; align-items: center">
+        <div class="reveal-left">
+          <span class="section-tag" style="background:rgba(240,165,0,0.15);color:var(--gold-light);">Destinée Nationale</span>
+          <h2 style="color: var(--white);">La Nation Gabonaise</h2>
+          <p style="color: rgba(255,255,255,0.75);">Le Gabon porte une destinée particulière, marquée par des promesses liées à un véritable réveil. Ce réveil ne se limite pas à une dimension spirituelle ; il est appelé à transformer tous les domaines de la nation.</p>
+          <p style="color: rgba(255,255,255,0.75);">La restauration à laquelle nous aspirons vise concrètement le salut et la prospérité de la nation — par la prière d'intercession et la repentance au nom du Seigneur.</p>
+          <div style="background: rgba(240,165,0,0.1); border-left: 3px solid var(--gold); padding: 1.25rem; border-radius: 0 var(--radius-sm) var(--radius-sm) 0; margin-top: 1.5rem;">
+            <p style="color: var(--white); font-style: italic; font-family: 'Playfair Display', serif; font-size: 0.95rem; margin: 0 0 0.3rem;">
+              « Vous êtes la lumière du monde ; une ville située sur une montagne ne peut être cachée. »
+            </p>
+            <cite style="color: var(--gold); font-size: 0.82rem; font-weight: 600;">— Matthieu 5:14</cite>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div style="background: rgba(255,255,255,0.05); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius); padding: 2rem;">
+            <h4 style="color: var(--gold); margin-bottom: 1.5rem; font-family: 'Poppins', sans-serif; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;">Domaines de Transformation</h4>
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div style="display:flex; align-items:center; gap:0.75rem; color: rgba(255,255,255,0.82); font-size:0.9rem">
+                <span style="color:var(--gold); font-size:1.1rem">🏛️</span> Spirituel &amp; Ecclésiastique
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem; color: rgba(255,255,255,0.82); font-size:0.9rem">
+                <span style="color:var(--gold); font-size:1.1rem">💼</span> Économique &amp; Social
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem; color: rgba(255,255,255,0.82); font-size:0.9rem">
+                <span style="color:var(--gold); font-size:1.1rem">🏛️</span> Politique &amp; Gouvernance
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem; color: rgba(255,255,255,0.82); font-size:0.9rem">
+                <span style="color:var(--gold); font-size:1.1rem">🎨</span> Culturel &amp; Artistique
+              </div>
+              <div style="display:flex; align-items:center; gap:0.75rem; color: rgba(255,255,255,0.82); font-size:0.9rem">
+                <span style="color:var(--gold); font-size:1.1rem">🌍</span> 52 Départements du Gabon
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HISTOIRE DE LA VISION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Notre Histoire</span>
+        <h2>Comment Est Née Cette Vision ?</h2>
+        <div class="gold-bar"></div>
+      </div>
+      <div class="grid grid-2" style="gap: 3.5rem; align-items: start">
+        <div class="reveal-left">
+          <p>Nous allons vous raconter une petite anecdote qui marque le point de départ de cette vision.</p>
+          <p>Nous sommes au début du mois de <strong>février 2022</strong> réunis dans une concession où se déroulent les réunions de la deuxième plus grande assemblée de Libreville. Nous y sommes pour un séminaire organisé par deux d'entre nous.</p>
+          <p>Bien qu'organisée par coïncidence, cette réunion a été bien vite marquée par une manifestation inhabituelle de la présence du Seigneur et des dons spirituels — convictions de péché, délivrances, restaurations, guérisons et une vive joie du Saint-Esprit.</p>
+          <div style="background: var(--cream); border-radius: var(--radius); padding: 1.75rem; border: 1px solid rgba(240,165,0,0.2); margin: 1.5rem 0;">
+            <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.95rem; color: var(--dark); margin: 0;">
+              « Je suis réel, je suis réel, je suis réel. Aujourd'hui, je confronte la Jézabel, je confronte le monde des ténèbres… Cette nation connaîtra ce réveil à ma parole ! »
+            </p>
+            <p style="color: var(--gold-dark); font-size: 0.8rem; font-weight: 600; margin: 0.5rem 0 0; text-align: right;">— Prophétie reçue lors de la réunion</p>
+          </div>
+          <p>Ces prophéties firent germer en nous le désir de chercher encore plus le Seigneur dans une vie de consécration plus intense pour le réveil de notre nation et celui des peuples en général.</p>
+        </div>
+
+        <div class="reveal-right">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>Février 2022 – La Rencontre</h4>
+              <p>Séminaire marqué par des manifestations surnaturelles inhabituelles à Libreville — point de départ de la vision.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>Retraites de Prière Multipliées</h4>
+              <p>L'équipe RS se retire dans des retraites de prières pour soupirer après les promesses du Seigneur pour la nation gabonaise.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>Programmes Internes et Publics</h4>
+              <p>Organisation de différents programmes permettant aux saints d'être ravivés et de saisir l'approche de la vie du disciple.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <h4>Officialisation de la Vision</h4>
+              <p>La vision Réveil Spirituel devient autonome et officielle au sortir d'une réunion d'anciens des églises du grand Libreville qui ont prié pour nous.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSIONS -->
+  <section class="section bg-cream">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Nos Activités</span>
+        <h2>Quelques-unes de Nos Missions</h2>
+        <p>Par la grâce du Seigneur, nous déployons la vision à travers plusieurs axes de ministère.</p>
+        <div class="gold-bar"></div>
+      </div>
+
+      <div class="mission-card-grid stagger">
+        <div class="m-card">
+          <div class="m-card-banner">
+            <div class="m-card-icon">📚</div>
+            <span class="m-card-label">Formation</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S Formation des Services</h4>
+            <p>Équiper les services via des formations bibliques et les encourager à répondre à leur appel au temps convenable — formation en ligne et présentiel.</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-banner" style="background: linear-gradient(135deg, #5a2800 0%, #2a1000 100%)">
+            <div class="m-card-icon">🌍</div>
+            <span class="m-card-label">Provinces</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S Provinces</h4>
+            <p>Un fardeau brûlant : voir les provinces, les villes éloignées et les 52 départements du Gabon touchés par le feu du réveil.</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-banner" style="background: linear-gradient(135deg, #1a4a2e 0%, #0a2015 100%)">
+            <div class="m-card-icon">🔥</div>
+            <span class="m-card-label">Évangélisation</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S Évangélisation</h4>
+            <p>Missions de réveil à portée évangélique : Week-ends de Réveil, Journées de Réveil et Veillées de Réveil dans diverses nations.</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-banner" style="background: linear-gradient(135deg, #1a1a5e 0%, #0a0a2e 100%)">
+            <div class="m-card-icon">📡</div>
+            <span class="m-card-label">Médias</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S Médias</h4>
+            <p>Diffuser la Parole du Seigneur à travers tous les canaux médiatiques — réseaux sociaux, chaînes nationales, tracts, flyers, YouTube.</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-banner" style="background: linear-gradient(135deg, var(--gold-dark) 0%, #5a3a00 100%)">
+            <div class="m-card-icon">🎵</div>
+            <span class="m-card-label">Musique</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S École de Musique</h4>
+            <p>Organiser des formations dans le domaine de la musique et des instruments musicaux — formation en ligne et présentiel.</p>
+          </div>
+        </div>
+
+        <div class="m-card">
+          <div class="m-card-banner" style="background: linear-gradient(135deg, #2e1a5e 0%, #150a2e 100%)">
+            <div class="m-card-icon">🤲</div>
+            <span class="m-card-label">Social</span>
+          </div>
+          <div class="m-card-body">
+            <h4>R.S Actions Sociales</h4>
+            <p>Partager l'amour du Seigneur en visitant les faibles, les malades, les orphelins, les veuves et les personnes vulnérables — gratuitement !</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSE FINAL -->
+  <div class="verse-block">
+    <div class="container-sm">
+      <blockquote>
+        « Et en allant, prêchez en disant : Le Royaume des cieux s'est approché ! Guérissez les malades, rendez purs les lépreux, ressuscitez les morts, chassez les démons. Vous avez reçu gratuitement, donnez gratuitement. »
+      </blockquote>
+      <cite>Mattithyah (Matthieu) 10:7-8</cite>
+      <div style="margin-top: 2.5rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="soutenir.html" class="btn btn-gold">
+          <i class="fa fa-hands-helping"></i> Participer à la Mission
+        </a>
+        <a href="index.html" class="btn btn-outline">
+          <i class="fa fa-home"></i> Retour à l'Accueil
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="footer-tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-links mt-3">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navigation</h5>
+        <ul>
+          <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Accueil</a></li>
+          <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> La Vision</a></li>
+          <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Lire la Bible</a></li>
+          <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nous Soutenir</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Actualités</h5>
+        <ul>
+          <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Projets Avenir</a></li>
+          <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Nos Vidéos</a></li>
+          <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.6rem"></i> Ouvrages</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:14px"></i> Email</a></li>
+          <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:14px"></i> +241 74 214 316</a></li>
+          <li><a href="#"><i class="fa fa-map-marker-alt" style="width:14px"></i> Libreville, Gabon</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

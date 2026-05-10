@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Vision – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .timeline { max-width: 680px; margin: 0 auto; position: relative; padding-left: 2rem; }
+    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:linear-gradient(to bottom, var(--gold), var(--violet-mid)); }
+    .tl-item { position:relative; padding: 0 0 2.5rem 2rem; }
+    .tl-dot { position:absolute; left:-2.25rem; top:0.3rem; width:14px; height:14px; border-radius:50%; background:var(--gold); border:3px solid var(--cosmos); box-shadow:0 0 8px var(--gold); }
+    .tl-year { font-size:0.68rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--gold); margin-bottom:0.3rem; font-family:'Cinzel', serif; }
+    .tl-title { font-family:'Cinzel', serif; font-size:1rem; color:var(--white); margin-bottom:0.35rem; }
+    .tl-desc { font-size:0.82rem; color:var(--dim); line-height:1.6; }
+    .mission-cosmic { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:800px){ .mission-cosmic{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:500px){ .mission-cosmic{grid-template-columns:1fr;} }
+    .mission-item { text-align:center; padding:2rem 1.25rem; border:1px solid var(--glass-border); border-radius:var(--radius); background:var(--glass-bg); backdrop-filter:blur(10px); transition:var(--transition); }
+    .mission-item:hover { border-color:rgba(245,158,11,0.4); background:rgba(245,158,11,0.06); }
+    .mission-num { font-family:'Cinzel', serif; font-size:2rem; font-weight:700; color:rgba(245,158,11,0.2); display:block; }
+    .mission-title { font-family:'Cinzel', serif; font-size:0.85rem; font-weight:600; color:var(--gold); margin:0.3rem 0; }
+    .mission-desc { font-size:0.78rem; color:var(--dim); }
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link active" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.55rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-tag"><i class="fa fa-eye"></i> &nbsp; La Vision</div>
+        <h1>Notre Mission et Appel</h1>
+        <p>Une vision reçue de YHWH pour le réveil apostolique et prophétique du Gabon et des nations environnantes.</p>
+        <div class="page-hero-verse">
+          <blockquote>« Je te constitue aujourd'hui sur les nations et les royaumes… »</blockquote>
+          <cite>Jérémie 1:10</cite>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="split reveal">
+        <div class="split-text">
+          <span class="section-tag"><i class="fa fa-church"></i> Qui Sommes-Nous</span>
+          <div class="gold-line"></div>
+          <h2>Une Communauté Apostolique &amp; Prophétique</h2>
+          <p style="color:var(--dim);line-height:1.8">Réveil Spirituel est une communauté de foi fondée sur les Écritures hébraïques dans leur intégralité. Nous croyons en la nécessité de restaurer les fondements de la foi tels que révélés par YHWH à Son peuple.</p>
+          <p style="color:var(--dim);line-height:1.8;margin-top:1rem">Porteurs d'une vocation apostolique et prophétique, nous sommes appelés à prêcher le Message du Royaume avec les noms hébraïques originaux — YHWH, Yéhoshou'a HaMashiah — à travers le Gabon et les nations.</p>
+          <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap">
+            <a href="soutenir.html" class="btn btn-glow"><i class="fa fa-heart"></i> Nous Rejoindre</a>
+            <a href="bible.html" class="btn btn-ghost"><i class="fa fa-book-open"></i> Lire la Bible</a>
+          </div>
+        </div>
+        <div class="split-visual">
+          <img src="../imag/bg hero 2.jpg" alt="Communauté de foi" style="width:100%;border-radius:var(--radius);display:block;opacity:0.85">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:rgba(91,33,182,0.08)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-star"></i> Fondements</span>
+        <div class="gold-line"></div>
+        <h2>Deux Piliers de la Mission</h2>
+      </div>
+      <div class="glass-grid stagger" style="grid-template-columns:repeat(2,1fr)">
+        <div class="glass-card">
+          <div class="card-icon gold"><i class="fa fa-paper-plane"></i></div>
+          <h3>Vocation Apostolique</h3>
+          <p style="color:var(--dim);font-size:0.875rem">Être envoyés pour établir des communautés de foi enracinées dans les Écritures hébraïques originales. Poser des fondements solides sur lesquels le Corps de Christ peut se bâtir.</p>
+        </div>
+        <div class="glass-card">
+          <div class="card-icon"><i class="fa fa-fire"></i></div>
+          <h3>Vocation Prophétique</h3>
+          <p style="color:var(--dim);font-size:0.875rem">Entendre et transmettre la voix de YHWH pour le temps présent — appeler les nations au réveil, à la repentance et au retour aux voies d'Élohîm.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-globe-africa"></i> Destinée</span>
+        <div class="violet-line"></div>
+        <h2>La Nation Gabonaise</h2>
+        <p style="color:var(--dim);max-width:640px;margin:0 auto">Le Gabon est au cœur de la vision reçue de YHWH. Nous croyons que cette nation a une destinée prophétique particulière dans le concert des nations africaines.</p>
+      </div>
+      <div class="feat-grid stagger">
+        <div class="feat-item">
+          <div class="feat-num">01</div>
+          <div class="feat-text">
+            <h4>Réveil National</h4>
+            <p>Un réveil profond qui touche toutes les couches de la société gabonaise — familles, jeunesse, institutions.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">02</div>
+          <div class="feat-text">
+            <h4>Restauration des Valeurs</h4>
+            <p>Retour aux valeurs bibliques dans la sphère publique et privée de la nation gabonaise.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">03</div>
+          <div class="feat-text">
+            <h4>Rayonnement Régional</h4>
+            <p>À partir du Gabon, que le message du réveil se répande vers les nations voisines d'Afrique centrale.</p>
+          </div>
+        </div>
+        <div class="feat-item">
+          <div class="feat-num">04</div>
+          <div class="feat-text">
+            <h4>Témoignage des Nations</h4>
+            <p>Le Gabon comme modèle et témoignage visible de ce que YHWH peut accomplir dans une nation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:rgba(91,33,182,0.08)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Histoire</span>
+        <div class="gold-line"></div>
+        <h2>Notre Parcours</h2>
+      </div>
+      <div class="timeline reveal">
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Février 2022</div>
+          <div class="tl-title">Réception de la Vision</div>
+          <div class="tl-desc">YHWH dépose la vision d'un réveil apostolique et prophétique pour le Gabon dans le cœur des fondateurs.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">Mi-2022</div>
+          <div class="tl-title">Fondation de la Communauté</div>
+          <div class="tl-desc">Les premiers membres se rassemblent autour de la vision — un noyau de croyants engagés dans l'étude des Écritures et la prière.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2023</div>
+          <div class="tl-title">Publications &amp; Médias</div>
+          <div class="tl-desc">Lancement de la chaîne YouTube @Reveilspirituel_Gabon et publication des premiers ouvrages de la mission.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-dot" style="background:var(--violet-mid)"></div>
+          <div class="tl-year">2024 – 2026</div>
+          <div class="tl-title">Expansion aux Provinces</div>
+          <div class="tl-desc">Extension vers les provinces du Gabon — Haut-Ogooué, Ogooué-Maritime — et préparation des projets École Biblique et Camps de Réveil.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-tasks"></i> Mission</span>
+        <div class="violet-line"></div>
+        <h2>Six Axes de la Mission</h2>
+      </div>
+      <div class="mission-cosmic stagger">
+        <div class="mission-item"><span class="mission-num">01</span><div class="mission-title">Formation Biblique</div><div class="mission-desc">Enseigner les Écritures hébraïques dans leur profondeur et leur originalité.</div></div>
+        <div class="mission-item"><span class="mission-num">02</span><div class="mission-title">Missions Provinces</div><div class="mission-desc">Étendre la vision apostolique vers les provinces gabonaises.</div></div>
+        <div class="mission-item"><span class="mission-num">03</span><div class="mission-title">Évangélisation</div><div class="mission-desc">Proclamer la Bonne Nouvelle de Yéhoshou'a HaMashiah dans les rues et institutions.</div></div>
+        <div class="mission-item"><span class="mission-num">04</span><div class="mission-title">Médias &amp; Productions</div><div class="mission-desc">YouTube, ouvrages, audio — partager le message au-delà des frontières.</div></div>
+        <div class="mission-item"><span class="mission-num">05</span><div class="mission-title">École de Musique</div><div class="mission-desc">Former des musiciens prophétiques pour le service de YHWH.</div></div>
+        <div class="mission-item"><span class="mission-num">06</span><div class="mission-title">Actions Sociales</div><div class="mission-desc">Toucher les plus vulnérables par des actions concrètes d'amour pratique.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-cosmic reveal">
+        <div class="cta-box">
+          <div class="cta-inner">
+            <span class="section-tag">Rejoindre l'aventure</span>
+            <h2>Faites Partie du Réveil</h2>
+            <p style="color:var(--dim)">Que ce soit par la prière, l'engagement ou le soutien financier, votre contribution est précieuse pour l'avancement de cette mission.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+              <a href="soutenir.html" class="btn btn-glow"><i class="fa fa-heart"></i> Nous Soutenir</a>
+              <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> Canal WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Accueil</a></li>
+        <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> La Vision</a></li>
+        <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Lire la Bible</a></li>
+        <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Projets Avenir</a></li>
+        <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nos Vidéos</a></li>
+        <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px"></i> +241 74 214 316</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

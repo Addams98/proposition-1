@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projets Avenir – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .coming-badge { display:inline-flex; align-items:center; gap:0.5rem; background:rgba(212,160,23,0.15); color:var(--accent); font-size:0.75rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; padding:0.4rem 1rem; border-radius:2rem; margin-bottom:1.25rem; border:1px solid rgba(212,160,23,0.3); }
+    .project-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; }
+    @media(max-width:900px){ .project-grid{grid-template-columns:1fr 1fr;} }
+    @media(max-width:600px){ .project-grid{grid-template-columns:1fr;} }
+    .project-card { border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow); background:var(--bg-card); }
+    .project-card-thumb { height:180px; display:flex; align-items:center; justify-content:center; font-size:3.5rem; }
+    .project-card-thumb.blue { background:linear-gradient(135deg,var(--primary-light) 0%,var(--primary) 100%); color:rgba(255,255,255,0.8); }
+    .project-card-thumb.gold { background:linear-gradient(135deg,#f5d87a 0%,var(--accent) 100%); color:rgba(0,0,0,0.5); }
+    .project-card-thumb.dark { background:linear-gradient(135deg,#2d4c6e 0%,#1a2f48 100%); color:rgba(255,255,255,0.8); }
+    .project-card-body { padding:1.5rem; }
+    .project-card-body h3 { font-size:1.05rem; margin-bottom:0.5rem; }
+    .project-card-body p { font-size:0.82rem; color:var(--text-light); }
+    .project-status { display:inline-flex; align-items:center; gap:0.4rem; font-size:0.7rem; font-weight:700; padding:0.25rem 0.75rem; border-radius:1rem; margin-bottom:0.75rem; }
+    .project-status.soon { background:rgba(212,160,23,0.12); color:var(--accent); border:1px solid rgba(212,160,23,0.25); }
+    .progress-section { background:var(--bg-card); border-radius:var(--radius); padding:2.5rem; border:1px solid var(--border); margin-top:3rem; }
+    .progress-bar-wrap { margin:1rem 0; }
+    .progress-bar-info { display:flex; justify-content:space-between; font-size:0.8rem; margin-bottom:0.35rem; color:var(--text-light); }
+    .progress-bar-track { height:6px; border-radius:3px; background:var(--border); overflow:hidden; }
+    .progress-bar-fill { height:100%; border-radius:3px; background:linear-gradient(to right, var(--primary), var(--primary-dark)); }
+  </style>
+</head>
+<body>
+  <nav class="navbar" role="navigation">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.6rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-eyebrow"><i class="fa fa-rocket"></i> &nbsp; Projets Avenir</div>
+        <h1>Ce qui est en Préparation</h1>
+        <p>La vision grandit — découvrez les projets que Réveil Spirituel prépare pour le Gabon et les nations environnantes.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="coming-badge"><i class="fa fa-clock"></i> Projets en préparation</div>
+        <h2>Nos Prochains Projets</h2>
+        <p>Trois initiatives majeures sont en cours de préparation pour 2025-2026. Participez en priant et en soutenant.</p>
+        <div class="blue-bar"></div>
+      </div>
+      <div class="project-grid stagger">
+        <div class="project-card">
+          <div class="project-card-thumb blue"><i class="fa fa-campground"></i></div>
+          <div class="project-card-body">
+            <div class="project-status soon"><i class="fa fa-hourglass-half"></i> En préparation</div>
+            <h3>Camps de Réveil</h3>
+            <p>Des camps de prière et de formation spirituelle intensive rassemblant les membres de la communauté pour un temps de réveil collectif.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-thumb gold"><i class="fa fa-globe-africa"></i></div>
+          <div class="project-card-body">
+            <div class="project-status soon"><i class="fa fa-hourglass-half"></i> En préparation</div>
+            <h3>Missions en Provinces</h3>
+            <p>Extension de la vision apostolique vers les provinces du Gabon — Haut-Ogooué, Ogooué-Maritime, Woleu-Ntem et les autres régions.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-card-thumb dark"><i class="fa fa-graduation-cap"></i></div>
+          <div class="project-card-body">
+            <div class="project-status soon"><i class="fa fa-hourglass-half"></i> En préparation</div>
+            <h3>École Biblique</h3>
+            <p>Un programme structuré d'enseignement des Écritures hébraïques pour former une génération de croyants enracinés dans la Parole.</p>
+          </div>
+        </div>
+      </div>
+      <div class="progress-section reveal">
+        <h3 style="margin-bottom:0.5rem">Avancement Global</h3>
+        <p style="font-size:0.875rem;color:var(--text-light);margin-bottom:1.75rem">Suivez la progression de nos projets en cours de préparation.</p>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-info"><span>Camps de Réveil</span><span>45%</span></div>
+          <div class="progress-bar-track"><div class="progress-bar-fill" style="width:45%"></div></div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-info"><span>Missions en Provinces</span><span>30%</span></div>
+          <div class="progress-bar-track"><div class="progress-bar-fill" style="width:30%"></div></div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-info"><span>École Biblique</span><span>20%</span></div>
+          <div class="progress-bar-track"><div class="progress-bar-fill" style="width:20%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="verse-strip">
+    <div class="container">
+      <blockquote>« Car Je connais les projets que j'ai formés sur vous, dit YHWH : projets de paix et non de malheur, pour vous donner un avenir et une espérance. »</blockquote>
+      <cite>Jérémie 29:11</cite>
+    </div>
+  </div>
+
+  <section class="section bg-white">
+    <div class="container">
+      <div class="cta-block reveal">
+        <div class="cta-inner">
+          <span class="section-tag" style="background:rgba(0,112,192,0.15);color:#7ac3f5">Restez informé</span>
+          <h2 style="color:#fff">Suivre les Avancées</h2>
+          <p>Rejoignez notre canal WhatsApp pour être informé en temps réel de l'avancement des projets et des annonces de la mission.</p>
+          <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+            <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"><i class="fab fa-whatsapp"></i> Rejoindre le Canal</a>
+            <a href="soutenir.html" class="btn btn-outline-white btn-lg"><i class="fa fa-heart"></i> Nous Soutenir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row" style="margin-top:1.25rem">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul><li><a href="index.html">Accueil</a></li><li><a href="vision.html">La Vision</a></li><li><a href="bible.html">Lire la Bible</a></li><li><a href="soutenir.html">Nous Soutenir</a></li></ul></div>
+      <div class="footer-col"><h5>Actualités</h5><ul><li><a href="projets.html">Projets Avenir</a></li><li><a href="videos.html">Nos Vidéos</a></li><li><a href="ouvrages.html">Ouvrages</a></li></ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul><li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li><li><a href="tel:+24174255323"><i class="fa fa-phone" style="width:13px"></i> +241 74 255 323</a></li><li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li></ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

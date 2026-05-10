@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Vidéos – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .video-cosmic { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:960px){ .video-cosmic{grid-template-columns:1fr 1fr;} }
+    @media(max-width:580px){ .video-cosmic{grid-template-columns:1fr;} }
+    .video-cosmic-card { border:1px solid var(--glass-border); border-radius:var(--radius); overflow:hidden; background:var(--glass-bg); backdrop-filter:blur(10px); transition:var(--transition); }
+    .video-cosmic-card:hover { border-color:rgba(245,158,11,0.4); transform:translateY(-4px); }
+    .video-cosmic-thumb { aspect-ratio:16/9; display:flex; align-items:center; justify-content:center; cursor:pointer; position:relative; }
+    .play-cosmic { width:52px; height:52px; border-radius:50%; background:rgba(245,158,11,0.15); border:2px solid var(--gold); color:var(--gold); display:flex; align-items:center; justify-content:center; font-size:1.1rem; transition:var(--transition); }
+    .video-cosmic-card:hover .play-cosmic { background:var(--gold); color:var(--cosmos); transform:scale(1.1); }
+    .video-cosmic-tag-overlay { position:absolute; bottom:0.65rem; left:0.65rem; font-size:0.62rem; font-weight:700; padding:0.18rem 0.55rem; border-radius:0.25rem; background:rgba(3,6,22,0.8); color:var(--gold); font-family:'Cinzel',serif; letter-spacing:0.06em; }
+    .video-cosmic-body { padding:1rem 1.25rem 1.5rem; }
+    .video-cosmic-type { font-size:0.62rem; text-transform:uppercase; letter-spacing:0.1em; color:var(--violet-mid); font-weight:700; font-family:'Cinzel',serif; margin-bottom:0.35rem; }
+    .video-cosmic-body h4 { font-family:'Cinzel', serif; font-size:0.85rem; color:var(--white); line-height:1.4; }
+    .video-cosmic-body p { font-size:0.75rem; color:var(--dim); margin-top:0.3rem; }
+    .yt-cosmic { border:1px solid rgba(245,158,11,0.35); border-radius:var(--radius); padding:3.5rem 2rem; text-align:center; background:linear-gradient(145deg, rgba(245,158,11,0.08), rgba(3,6,22,0.5)); }
+    .yt-cosmic i.fab { font-size:3.5rem; color:var(--gold); filter:drop-shadow(0 0 12px rgba(245,158,11,0.4)); margin-bottom:1rem; }
+    .yt-cosmic h2 { font-family:'Cinzel',serif; color:var(--white); margin-bottom:0.5rem; }
+    .yt-cosmic p { color:var(--dim); max-width:520px; margin:0 auto 2rem; font-size:0.9rem; }
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.55rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-tag"><i class="fab fa-youtube"></i> &nbsp; Vidéos</div>
+        <h1>Nos Enseignements</h1>
+        <p>Des messages prophétiques et apostoliques pour vous édifier dans la Parole de YHWH — disponibles gratuitement sur YouTube.</p>
+        <div class="page-hero-verse">
+          <blockquote>« La foi vient de ce qu'on entend, et ce qu'on entend vient de la parole de Christ. »</blockquote>
+          <cite>Romains 10:17</cite>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="yt-cosmic reveal">
+        <i class="fab fa-youtube"></i>
+        <h2>@Reveilspirituel_Gabon</h2>
+        <p>Abonnez-vous à notre chaîne YouTube pour recevoir tous nos enseignements et ne manquer aucune nouvelle publication.</p>
+        <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn btn-gold"><i class="fab fa-youtube"></i> S'abonner à la Chaîne</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background:rgba(91,33,182,0.06)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Enseignements</span>
+        <div class="violet-line"></div>
+        <h2>Derniers Messages</h2>
+        <p style="color:var(--dim)">Parcourez nos enseignements sur la prière, la Parole et la vision prophétique pour le Gabon.</p>
+      </div>
+      <div class="video-cosmic stagger">
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(245,158,11,0.2), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Prière</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">Intercession</div>
+            <h4>L'importance de la prière quotidienne</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">Comprendre la place centrale de la prière dans la vie du croyant.</p>
+          </div>
+        </div>
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(124,58,237,0.3), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Parole</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">Enseignement Biblique</div>
+            <h4>Retourner aux Écritures hébraïques</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">Pourquoi les noms hébraïques originaux sont essentiels.</p>
+          </div>
+        </div>
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(16,185,129,0.2), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Prophétie</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">Vision Prophétique</div>
+            <h4>Le réveil du Gabon — destinée nationale</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">La vision prophétique de YHWH pour la nation gabonaise.</p>
+          </div>
+        </div>
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(239,68,68,0.2), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Mission</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">Apostolique</div>
+            <h4>Être envoyé — la vocation apostolique</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">L'appel apostolique dans le Corps de Yéhoshou'a HaMashiah.</p>
+          </div>
+        </div>
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(59,130,246,0.25), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Formation</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">École Biblique</div>
+            <h4>Introduction aux Écritures hébraïques</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">Premier cours de notre programme de formation biblique.</p>
+          </div>
+        </div>
+        <div class="video-cosmic-card">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="video-cosmic-thumb" style="background:radial-gradient(ellipse, rgba(168,85,247,0.25), rgba(3,6,22,0.9))">
+            <div class="play-cosmic"><i class="fa fa-play" style="margin-left:3px"></i></div>
+            <span class="video-cosmic-tag-overlay">Témoignage</span>
+          </a>
+          <div class="video-cosmic-body">
+            <div class="video-cosmic-type">Témoignage</div>
+            <h4>Transformé par la Parole de YHWH</h4>
+            <p style="font-size:0.75rem;color:var(--dim)">Comment la Parole vivante a changé nos vies.</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:3rem">
+        <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn btn-glow"><i class="fab fa-youtube"></i> Voir toutes les vidéos</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-cosmic reveal">
+        <div class="cta-box">
+          <div class="cta-inner">
+            <span class="section-tag">Rester Connecté</span>
+            <h2>Rejoindre la Communauté</h2>
+            <p style="color:var(--dim)">YouTube pour les enseignements, WhatsApp pour les annonces — deux voies pour rester connecté à la mission.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+              <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="btn btn-gold"><i class="fab fa-youtube"></i> YouTube</a>
+              <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> Canal WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Accueil</a></li>
+        <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> La Vision</a></li>
+        <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Lire la Bible</a></li>
+        <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Projets Avenir</a></li>
+        <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nos Vidéos</a></li>
+        <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px"></i> +241 74 214 316</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

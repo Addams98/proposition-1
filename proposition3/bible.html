@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lire la Bible – Réveil Spirituel</title>
+  <link rel="icon" href="../imag/logo reveil spirituel_Plan de travail 1 copie.png" type="image/png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    .bible-cosmic { display:grid; grid-template-columns:1fr 1fr; gap:2rem; max-width:900px; margin:0 auto; }
+    @media(max-width:700px){ .bible-cosmic{grid-template-columns:1fr;} }
+    .bible-cosmic-card { border:1px solid var(--glass-border); border-radius:var(--radius); overflow:hidden; background:var(--glass-bg); backdrop-filter:blur(10px); transition:var(--transition); }
+    .bible-cosmic-card:hover { border-color:rgba(245,158,11,0.5); transform:translateY(-5px); }
+    .bible-cosmic-header { padding:2.5rem 2rem 2rem; text-align:center; }
+    .bible-cosmic-header.gold { background:linear-gradient(145deg, rgba(245,158,11,0.2), rgba(245,158,11,0.05)); }
+    .bible-cosmic-header.violet { background:linear-gradient(145deg, rgba(124,58,237,0.25), rgba(91,33,182,0.1)); }
+    .bible-cosmic-header .bible-icon { font-size:2.75rem; margin-bottom:0.75rem; }
+    .bible-cosmic-header .bible-icon.gold-icon { color:var(--gold); filter:drop-shadow(0 0 8px rgba(245,158,11,0.5)); }
+    .bible-cosmic-header .bible-icon.violet-icon { color:var(--violet-mid); filter:drop-shadow(0 0 8px rgba(124,58,237,0.5)); }
+    .bible-cosmic-header h3 { color:var(--white); font-family:'Cinzel', serif; font-size:1.05rem; }
+    .bible-cosmic-body { padding:1.5rem 2rem 2rem; }
+    .bible-cosmic-body p { color:var(--dim); font-size:0.85rem; margin-bottom:1.25rem; }
+    .bible-feat { display:flex; flex-direction:column; gap:0.5rem; margin-bottom:1.5rem; }
+    .bible-feat li { display:flex; align-items:center; gap:0.6rem; font-size:0.8rem; color:var(--dim); }
+    .bible-feat li i { color:var(--gold); width:14px; }
+    .tips-cosmic { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; }
+    @media(max-width:800px){ .tips-cosmic{grid-template-columns:1fr 1fr;} }
+    @media(max-width:500px){ .tips-cosmic{grid-template-columns:1fr;} }
+    .tip-cosmic { border:1px solid var(--glass-border); border-radius:var(--radius); padding:1.5rem; background:var(--glass-bg); text-align:center; transition:var(--transition); }
+    .tip-cosmic:hover { border-color:rgba(124,58,237,0.4); }
+    .tip-cosmic-icon { font-size:1.5rem; color:var(--violet-mid); margin-bottom:0.75rem; }
+    .tip-cosmic h4 { font-family:'Cinzel', serif; font-size:0.82rem; color:var(--white); margin-bottom:0.4rem; }
+    .tip-cosmic p { font-size:0.75rem; color:var(--dim); }
+  </style>
+</head>
+<body>
+  <canvas id="starfield" aria-hidden="true" style="position:fixed;inset:0;z-index:0;pointer-events:none"></canvas>
+
+  <nav class="navbar" role="navigation" aria-label="Navigation principale">
+    <a class="nav-logo" href="index.html">
+      <img src="../imag/logo reveil spirituel_Plan de travail 1 copie.png" alt="Logo Réveil Spirituel">
+      <div class="logo-text"><span>Réveil Spirituel</span><span>Gabon &amp; Nations</span></div>
+    </a>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item"><a class="nav-link" href="index.html">Accueil</a></li>
+      <li class="nav-item"><a class="nav-link" href="vision.html">La Vision</a></li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Actualités <i class="fa fa-chevron-down" style="font-size:0.55rem"></i></a>
+        <div class="dropdown">
+          <a href="projets.html"><i class="fa fa-rocket" style="width:14px"></i> Projets Avenir</a>
+          <a href="videos.html"><i class="fa fa-play-circle" style="width:14px"></i> Nos Vidéos</a>
+          <a href="ouvrages.html"><i class="fa fa-book" style="width:14px"></i> Ouvrages</a>
+        </div>
+      </li>
+      <li class="nav-item"><a class="nav-link active" href="bible.html">Lire la Bible</a></li>
+      <li class="nav-item"><a class="nav-link nav-cta" href="soutenir.html"><i class="fa fa-heart"></i> Nous Soutenir</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+
+  <header class="page-hero">
+    <div class="container">
+      <div class="page-hero-content">
+        <div class="page-hero-tag"><i class="fa fa-book-open"></i> &nbsp; Lire la Bible</div>
+        <h1>La Parole de YHWH</h1>
+        <p>Accédez aux Saintes Écritures dans leur version hébraïque restaurée — la lumière pour votre chemin.</p>
+        <div class="page-hero-verse">
+          <blockquote>« Tes paroles sont une lampe à mes pieds et une lumière sur mon sentier. »</blockquote>
+          <cite>Psaume 119:105</cite>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag"><i class="fa fa-bible"></i> Ressources</span>
+        <div class="gold-line"></div>
+        <h2>Choisir Votre Bible</h2>
+        <p style="color:var(--dim)">Deux ressources fiables pour lire les Écritures dans leur intégralité.</p>
+      </div>
+      <div class="bible-cosmic stagger">
+        <div class="bible-cosmic-card">
+          <div class="bible-cosmic-header gold">
+            <div class="bible-icon gold-icon"><i class="fa fa-scroll"></i></div>
+            <h3>Bible de Yéhoshou'a HaMashiah</h3>
+          </div>
+          <div class="bible-cosmic-body">
+            <p>Traduction utilisent les noms hébraïques originaux — YHWH, Yéhoshou'a, Élohîm. Fidèle aux textes sources de l'Ancien et du Nouveau Testament.</p>
+            <ul class="bible-feat">
+              <li><i class="fa fa-star"></i> Noms hébraïques originaux restaurés</li>
+              <li><i class="fa fa-star"></i> Ancien &amp; Nouveau Testament complet</li>
+              <li><i class="fa fa-star"></i> Traduction fidèle au texte source</li>
+            </ul>
+            <a href="https://www.bibledeyehoshouahamashiah.org/lire.html" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="width:100%;justify-content:center"><i class="fa fa-external-link-alt"></i> Ouvrir la Bible</a>
+          </div>
+        </div>
+        <div class="bible-cosmic-card">
+          <div class="bible-cosmic-header violet">
+            <div class="bible-icon violet-icon"><i class="fa fa-book"></i></div>
+            <h3>Bible Lueur.org</h3>
+          </div>
+          <div class="bible-cosmic-body">
+            <p>Ressource biblique complète en français, accessible gratuitement. Idéale pour la lecture quotidienne et les études de groupe.</p>
+            <ul class="bible-feat">
+              <li><i class="fa fa-star"></i> Plusieurs versions disponibles</li>
+              <li><i class="fa fa-star"></i> Interface de lecture claire</li>
+              <li><i class="fa fa-star"></i> Accès gratuit et immédiat</li>
+            </ul>
+            <a href="https://www.lueur.org/bible/lire/" target="_blank" rel="noopener noreferrer" class="btn btn-glow" style="width:100%;justify-content:center"><i class="fa fa-external-link-alt"></i> Ouvrir la Bible</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="verse-cosmic">
+    <div class="container">
+      <blockquote>« Toute Écriture est inspirée d'Élohîm et utile pour la doctrine, pour la conviction, pour la correction, pour l'éducation dans la justice. »</blockquote>
+      <cite>2 Timothée 3:16</cite>
+    </div>
+  </div>
+
+  <section class="section" style="background:rgba(91,33,182,0.06)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Conseils</span>
+        <div class="violet-line"></div>
+        <h2>Principes de Lecture</h2>
+        <p style="color:var(--dim)">Des clés pratiques pour une lecture des Écritures qui transforme votre vie quotidienne.</p>
+      </div>
+      <div class="tips-cosmic stagger">
+        <div class="tip-cosmic"><div class="tip-cosmic-icon"><i class="fa fa-calendar-check"></i></div><h4>Lire Régulièrement</h4><p style="font-size:0.75rem;color:var(--dim)">Consacrez un temps quotidien — même 15 minutes — à la Parole de YHWH.</p></div>
+        <div class="tip-cosmic"><div class="tip-cosmic-icon"><i class="fa fa-praying-hands"></i></div><h4>Prier Avant de Lire</h4><p style="font-size:0.75rem;color:var(--dim)">Demandez à l'Esprit d'illuminer votre compréhension avant de lire.</p></div>
+        <div class="tip-cosmic"><div class="tip-cosmic-icon"><i class="fa fa-pencil-alt"></i></div><h4>Prendre des Notes</h4><p style="font-size:0.75rem;color:var(--dim)">Notez les révélations, versets marquants et applications concrètes.</p></div>
+        <div class="tip-cosmic"><div class="tip-cosmic-icon" style="color:var(--gold)"><i class="fa fa-search"></i></div><h4>Lire en Contexte</h4><p style="font-size:0.75rem;color:var(--dim)">Lisez les passages dans leur contexte littéraire et historique complet.</p></div>
+        <div class="tip-cosmic"><div class="tip-cosmic-icon" style="color:var(--gold)"><i class="fa fa-users"></i></div><h4>Partager en Groupe</h4><p style="font-size:0.75rem;color:var(--dim)">Les discussions communautaires approfondissent la compréhension des Écritures.</p></div>
+        <div class="tip-cosmic"><div class="tip-cosmic-icon" style="color:var(--gold)"><i class="fa fa-heart"></i></div><h4>Obéir &amp; Pratiquer</h4><p style="font-size:0.75rem;color:var(--dim)">Mettez en pratique ce que vous lisez — la Parole est vivante et active.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-sm">
+    <div class="container">
+      <div class="cta-cosmic reveal">
+        <div class="cta-box">
+          <div class="cta-inner">
+            <span class="section-tag">Aller plus loin</span>
+            <h2>Approfondir par les Ouvrages</h2>
+            <p style="color:var(--dim)">Complémentez votre lecture par les ouvrages de la mission — livres et audios pour votre édification.</p>
+            <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2rem">
+              <a href="ouvrages.html" class="btn btn-gold"><i class="fa fa-book"></i> Voir les Ouvrages</a>
+              <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><i class="fab fa-whatsapp"></i> Canal WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer role="contentinfo">
+    <div class="footer-top container">
+      <div class="footer-brand">
+        <img src="../imag/logo reveil spirituel beu claire_Plan de travail 1 copie.png" alt="Réveil Spirituel">
+        <p>Vision apostolique et prophétique pour l'édification du Corps de Christ au Gabon et dans les nations.</p>
+        <p class="tagline">« Le réveil des peuples est en marche avec Yéhoshou'a ! »</p>
+        <div class="social-row">
+          <a href="https://www.youtube.com/@Reveilspirituel_Gabon" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://whatsapp.com/channel/0029VaKSEcZ0VycAKHsSia2k" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.facebook.com/share/18eJiGb11s/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Navigation</h5><ul>
+        <li><a href="index.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Accueil</a></li>
+        <li><a href="vision.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> La Vision</a></li>
+        <li><a href="bible.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Lire la Bible</a></li>
+        <li><a href="soutenir.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nous Soutenir</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Ressources</h5><ul>
+        <li><a href="projets.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Projets Avenir</a></li>
+        <li><a href="videos.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Nos Vidéos</a></li>
+        <li><a href="ouvrages.html"><i class="fa fa-chevron-right" style="font-size:0.5rem"></i> Ouvrages</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact</h5><ul>
+        <li><a href="mailto:reunion2reveilspirituel@gmail.com"><i class="fa fa-envelope" style="width:13px"></i> Email</a></li>
+        <li><a href="https://wa.me/+24174214316" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp" style="width:13px"></i> +241 74 214 316</a></li>
+        <li><a href="#"><i class="fa fa-map-marker-alt" style="width:13px"></i> Libreville, Gabon</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom container">
+      <p>&copy; 2026 Réveil Spirituel Gabon. Tous droits réservés.</p>
+      <p>Email : <a href="mailto:reunion2reveilspirituel@gmail.com">reunion2reveilspirituel@gmail.com</a></p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
